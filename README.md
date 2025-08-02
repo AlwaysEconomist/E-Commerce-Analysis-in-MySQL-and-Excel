@@ -16,7 +16,7 @@ The database consists of three main tables: dim_customers, which stores customer
 
 ### Tools used for this project
 
-- Excel : Data Cleaning
+- Excel : Data Cleaning and Visualization
 - MySQL : Data Analysis
 
 ### Data Cleaning/Preparation
