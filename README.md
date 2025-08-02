@@ -349,7 +349,7 @@ FROM bens.dim_customers c
 JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
 GROUP BY c.customer_id, c.first_name, c.last_name;
 
---15. Which countries have customers with no sales in the last 90 days?
+--15. Which countries have customers with no purchases in the last 90 days?
 
 SELECT DISTINCT c.country
 FROM customers c
@@ -398,7 +398,7 @@ ORDER BY
     Sales_Month;
 
 
-		 **-- E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.**
+		 -- E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
 
     
 -- 18. Which countries have the highest customer acquisition rate?
