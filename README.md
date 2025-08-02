@@ -54,7 +54,7 @@ CREATE INDEX idx_fact_sales_order_date ON bens.fact_sales (order_date);
 CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order_date);
 
     
-                                  	-- A- STOCK INVENTORY MANAGEMENT : Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
+        -- A- STOCK INVENTORY MANAGEMENT : Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
 
@@ -134,7 +134,7 @@ ORDER BY
 
 
             
-                                                -- B- PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
+                 -- B- PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
 
 
 -- 5. Which products are the top 5 sellers by quantity?
@@ -240,8 +240,10 @@ SELECT
 FROM 
     Product_Sales
 ORDER BY 6 DESC;
+
+
  
-			                                   -- C- LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
+      -- C- LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
 
 -- 10. Which customers have not made any purchases/ inactive customers?
 
@@ -338,8 +340,10 @@ HAVING
     COUNT(pi.Days_Between) > 0
 ORDER BY 
     Avg_Days_Between_Purchases ASC;
+    
 
-	                                                 		-- D- REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
+
+	        -- D- REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
 
 
 -- 14. What is the total sales amount by country?
@@ -380,7 +384,7 @@ ORDER BY
     Sales_Month;
 
 
-			                               **-- E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.**
+		 **-- E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.**
 
     
 -- 16. Which countries have the highest customer acquisition rate?
