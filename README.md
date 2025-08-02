@@ -90,7 +90,7 @@ CREATE INDEX idx_fact_sales_order_date ON bens.fact_sales (order_date);
 CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order_date);
 
     
-A- STOCK INVENTORY MANAGEMENT : Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
+A-STOCK INVENTORY MANAGEMENT: Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
 -- Helps identify products needing restocking to avoid lost sales and optimize inventory levels.
@@ -179,7 +179,7 @@ ORDER BY
     Days_Until_Depletion DESC;
     
 
-       B- PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
+ B- PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
 
 -- 5. Which products are the top 5 sellers by quantity?
 -- Highlights popular products to ensure adequate stock and promote high-demand items.
