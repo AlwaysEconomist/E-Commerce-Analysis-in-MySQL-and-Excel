@@ -90,8 +90,7 @@ CREATE INDEX idx_fact_sales_order_date ON bens.fact_sales (order_date);
 CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order_date);
 
     
-        A- STOCK INVENTORY MANAGEMENT : Focuses on managing and analyzing inventory levels
-to optimize stock and prevent shortages or overstocking.
+A- STOCK INVENTORY MANAGEMENT : Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
 -- Helps identify products needing restocking to avoid lost sales and optimize inventory levels.
@@ -465,7 +464,7 @@ ORDER BY
     Sales_Month;
 
 
-         E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
+  E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
     
 -- 18. Which countries have the highest customer acquisition rate?
 --  Identifies high-growth markets for targeted marketing and expansion efforts.
