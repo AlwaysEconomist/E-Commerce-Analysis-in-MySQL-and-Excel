@@ -1,5 +1,5 @@
 # Data-Analysis-Project-Using-MySQL
-Product and Sales Performance , Customer Behavior Analysis &amp; Inventory Management Project Using MySQL
+Product and Sales Performance , Customer Behavior Analysis and Inventory Management Project Using MySQL
 
 
 CREATE DATABASE bens;
