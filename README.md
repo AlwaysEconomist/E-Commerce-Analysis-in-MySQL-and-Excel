@@ -23,7 +23,7 @@ CREATE TABLE dim_products (
     category VARCHAR(50),
     price DECIMAL(10,2),
     cost DECIMAL(10,2),
-    stock BIGINT
+    stock INT
 );
 
 CREATE TABLE fact_sales (
