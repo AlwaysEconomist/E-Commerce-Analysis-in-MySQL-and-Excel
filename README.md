@@ -18,7 +18,6 @@ The database consists of three main tables: dim_customers, which stores customer
 
 - Excel : Data Cleaning
 - MySQL : Data Analysis
-- Power BI : Creating Reports
 
 ### Data Cleaning/Preparation
   In the initial data preparation phase, we performed the following task:
