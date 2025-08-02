@@ -1,9 +1,8 @@
 # Data-Analysis-Project-Using-MySQL
-Product and Sales Performance, Customer Behavior and Inventory Management Analysis Project Using MySQL
+Product and Sales Performance, Customer Behavior and Inventory Management Analysis Project Using MySQL.
 
 
 CREATE DATABASE bens;
-USE bens;
 
 CREATE TABLE dim_customers (
     customer_id INT PRIMARY KEY,
@@ -31,7 +30,9 @@ CREATE TABLE fact_sales (
     customer_id INT,
     product_id INT,
     order_date DATE,
-    quantity INT
+    quantity INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id)
 );
 
                                                           -- QUERY OPTIMIZATION THROUGH INDEXES
@@ -65,9 +66,9 @@ SELECT
     stock,
     CASE
         WHEN stock = 0 THEN 'Out_Of_Stock'
-        WHEN stock BETWEEN 0 AND 100 THEN 'At Risk'
-        WHEN stock BETWEEN 100 AND 400 THEN 'Normal'
-        WHEN stock > 0 THEN 'Overstocked'
+        WHEN stock BETWEEN 0 AND 200 THEN 'At Risk'
+        WHEN stock BETWEEN 200 AND 500 THEN 'Normal'
+        WHEN stock > 500 THEN 'Overstocked'
         ELSE 'Ouffff'
     END AS Stock_Inventory_Segmentation
 FROM
@@ -341,12 +342,25 @@ HAVING
 ORDER BY 
     Avg_Days_Between_Purchases ASC;
     
+--14.  What is the average sales amount per customer?
+
+SELECT c.customer_id, c.first_name, c.last_name, ROUND(AVG(fs.sales_amount), 2) AS avg_sales
+FROM bens.dim_customers c
+JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
+GROUP BY c.customer_id, c.first_name, c.last_name;
+
+--15. Which countries have customers with no sales in the last 90 days?
+
+SELECT DISTINCT c.country
+FROM customers c
+LEFT JOIN fact_sales fs ON c.customer_id = fs.customer_id
+WHERE fs.sale_id IS NULL OR fs.order_date < DATE_SUB(CURDATE(), INTERVAL 90 DAY);
 
 
 	        -- D- REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
 
 
--- 14. What is the total sales amount by country?
+-- 16. What is the total sales amount by country?
 
 SELECT 
     c.country, SUM(fs.quantity * p.price) AS Total_Sales
@@ -359,7 +373,7 @@ FROM
 GROUP BY c.country
 ORDER BY 2 DESC;
 
--- 15. What is the total sales by month and the month-over-month sales growth rate?
+-- 17. What is the total sales by month and the month-over-month sales growth rate?
 
 WITH MonthlySales AS (
     SELECT 
@@ -387,7 +401,7 @@ ORDER BY
 		 **-- E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.**
 
     
--- 16. Which countries have the highest customer acquisition rate?
+-- 18. Which countries have the highest customer acquisition rate?
 
 SELECT 
     c.country,
@@ -400,7 +414,7 @@ GROUP BY
 ORDER BY 
     New_Customers DESC;
 
--- 17. How are customers segmented by total spending?
+-- 19. How are customers segmented by total spending?
 
 SELECT 
     c.customer_id,
@@ -420,7 +434,7 @@ ORDER BY
     c.customer_id,
     Total_Spent DESC;
 
--- 18. What is the distribution of marital status among top-spending customers?
+-- 20. What is the distribution of marital status among top-spending customers?
 
 WITH TopSpenders AS (
     SELECT 
@@ -449,7 +463,7 @@ GROUP BY
 ORDER BY 
     Top_Spender_Count DESC;
 
--- 19. Which gender and marital status combinations have the highest order frequency?
+-- 21. Which gender and marital status combinations have the highest order frequency?
 
 SELECT 
     c.gender,
@@ -470,7 +484,7 @@ ORDER BY
 LIMIT 
     5;
     
--- 20 . How do age groups differ in their purchasing behavior by category?
+-- 22 . How do age groups differ in their purchasing behavior by category?
 
 WITH AgeSegment AS (
     SELECT 
