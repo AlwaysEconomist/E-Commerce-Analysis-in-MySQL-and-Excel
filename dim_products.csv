@@ -1,0 +1,301 @@
+product_id,product_name,category,price,cost,stock
+1,Crime Electronic,Electronics,133.3,46.93,28
+2,Most Electronic,Electronics,240.68,143.68,452
+3,Whatever Sport,Sports,47.94,14.55,497
+4,School Clothin,Clothing,54.48,11.06,317
+5,Prevent Sport,Sports,179.62,150.88,434
+6,Me Electronic,Electronics,180.04,161.76,26
+7,Single Electronic,Electronics,265.26,166.92,159
+8,Focus Clothin,Clothing,205.98,165.62,89
+9,Tonight Beaut,Beauty,82.07,21.39,462
+10,What Electronic,Electronics,20.37,9.25,113
+11,Rise Beaut,Beauty,108.71,91.47,40
+12,Edge Home & Kitche,Home & Kitchen,123.41,28.89,424
+13,Conference Clothin,Clothing,231.36,185.21,182
+14,Forward Book,Books,143.1,101.74,267
+15,Responsibility Clothin,Clothing,165.31,74.02,389
+16,Available Home & Kitche,Home & Kitchen,111.09,91.97,480
+17,Compare Sport,Sports,191.8,125.31,251
+18,Culture Book,Books,227.65,177.14,298
+19,Go Home & Kitche,Home & Kitchen,124.52,79.69,499
+20,We Sport,Sports,153.02,53.58,467
+21,Lose Electronic,Electronics,277.21,197.93,140
+22,Change Book,Books,162.22,111.18,134
+23,Add Sport,Sports,144.87,102.97,155
+24,Reflect Electronic,Electronics,92.99,67.18,19
+25,Matter Home & Kitche,Home & Kitchen,115.63,16.43,289
+26,Later Home & Kitche,Home & Kitchen,254.49,154.53,455
+27,Good Clothin,Clothing,91.93,24.53,189
+28,Against Sport,Sports,256.32,164.18,216
+29,Cost Clothin,Clothing,215.61,117.26,426
+30,Everything Home & Kitche,Home & Kitchen,286.57,187.37,52
+31,Upon Clothin,Clothing,86.34,51.13,211
+32,Ball Beaut,Beauty,136.16,74.96,98
+33,Conference Beaut,Beauty,132.51,73.58,312
+34,Respond Sport,Sports,274.42,189.93,439
+35,Soon Book,Books,132.39,110.71,486
+36,Tonight Electronic,Electronics,78.11,15.95,327
+37,Act Sport,Sports,134.72,98.21,300
+38,Phone Clothin,Clothing,199.63,162.26,188
+39,He Home & Kitche,Home & Kitchen,35.64,16.61,282
+40,Matter Clothin,Clothing,241.42,156,487
+41,Past Home & Kitche,Home & Kitchen,232.8,192.31,264
+42,Ability Beaut,Beauty,96.74,82.14,262
+43,Middle Home & Kitche,Home & Kitchen,51.57,31.61,400
+44,Tv Book,Books,255.67,159.41,332
+45,End Home & Kitche,Home & Kitchen,136,38.97,344
+46,Marriage Sport,Sports,184.67,158.46,93
+47,Break Clothin,Clothing,153.51,78.78,334
+48,Answer Clothin,Clothing,44.82,39.65,128
+49,Tell Sport,Sports,180.82,81.36,289
+50,Adult Sport,Sports,73.54,11.31,470
+51,Our Sport,Sports,106.8,48.07,377
+52,Response Book,Books,108.24,32.43,469
+53,Fill Home & Kitche,Home & Kitchen,217.51,196.56,134
+54,Thing Electronic,Electronics,233.87,165.22,105
+55,Drive Home & Kitche,Home & Kitchen,122.29,92.09,417
+56,Network Beaut,Beauty,47.6,18.22,225
+57,Most Beaut,Beauty,46.91,5.25,393
+58,Computer Book,Books,283,193.97,339
+59,Someone Book,Books,114.15,73.49,66
+60,Choice Book,Books,218.72,158.8,265
+61,Stage Beaut,Beauty,96.86,48.99,34
+62,Between Electronic,Electronics,97.79,62.51,462
+63,Black Electronic,Electronics,40.63,19.47,283
+64,Fly Clothin,Clothing,204.71,147.74,447
+65,Summer Electronic,Electronics,169.5,70.9,344
+66,Simply Book,Books,188.36,142.38,411
+67,Government Clothin,Clothing,169.68,123.43,244
+68,Local Electronic,Electronics,167.13,69.56,129
+69,Military Beaut,Beauty,205.98,113.05,341
+70,Simple Home & Kitche,Home & Kitchen,167.07,133.82,1
+71,Have Electronic,Electronics,138.84,81.62,296
+72,Offer Clothin,Clothing,20.99,15.63,176
+73,Even Home & Kitche,Home & Kitchen,230.04,165.66,40
+74,Record Clothin,Clothing,48.57,23.91,480
+75,Message Home & Kitche,Home & Kitchen,245.52,195.53,500
+76,Environment Home & Kitche,Home & Kitchen,207.79,158.05,422
+77,His Beaut,Beauty,122.66,56.68,145
+78,Low Clothin,Clothing,118.59,77.35,476
+79,Add Book,Books,60.48,13.7,173
+80,Their Clothin,Clothing,226.83,168.23,73
+81,Head Beaut,Beauty,148.3,135.16,500
+82,Fish Sport,Sports,162.59,85.73,494
+83,See Sport,Sports,58.67,16.89,120
+84,Goal Book,Books,263.57,193.3,76
+85,Vote Book,Books,144.07,116.68,294
+86,National Electronic,Electronics,168.11,81.99,497
+87,Stage Sport,Sports,170.49,116.39,425
+88,Record Beaut,Beauty,215.65,196.64,446
+89,Tough Book,Books,137.22,38.71,1
+90,Treatment Clothin,Clothing,179.64,162.65,4
+91,Week Electronic,Electronics,244.07,197.71,144
+92,Threat Beaut,Beauty,95.37,33.84,211
+93,Pick Beaut,Beauty,194.63,183.26,390
+94,Member Sport,Sports,118.46,82.48,463
+95,Budget Sport,Sports,182.32,94.34,345
+96,Expect Beaut,Beauty,181.14,126.5,236
+97,Rich Electronic,Electronics,104.9,85.82,333
+98,Natural Sport,Sports,247.15,152.88,454
+99,Should Electronic,Electronics,129.31,114.72,23
+100,Push Sport,Sports,265.03,176.63,394
+101,Against Book,Books,192.02,132.68,67
+102,Choose Electronic,Electronics,81.86,38.58,38
+103,Item Sport,Sports,180.92,137.76,255
+104,Total Home & Kitche,Home & Kitchen,149.33,139.65,380
+105,Discussion Home & Kitche,Home & Kitchen,186.84,179.92,135
+106,Receive Home & Kitche,Home & Kitchen,150.71,65.64,420
+107,Change Beaut,Beauty,235.94,138.55,196
+108,Heavy Clothin,Clothing,139.24,63.59,81
+109,Modern Home & Kitche,Home & Kitchen,102.13,57.54,466
+110,Allow Electronic,Electronics,66.73,41.65,271
+111,Election Book,Books,226.63,149.48,221
+112,Participant Home & Kitche,Home & Kitchen,219.05,165.1,409
+113,Sit Electronic,Electronics,118.82,65.67,3
+114,Safe Sport,Sports,184.22,176.47,166
+115,Lawyer Clothin,Clothing,196.91,168.21,337
+116,Here Electronic,Electronics,255.96,184.02,375
+117,Design Home & Kitche,Home & Kitchen,218.57,165.58,147
+118,Size Electronic,Electronics,165.81,137.83,4
+119,Behind Sport,Sports,188.24,91.99,320
+120,Daughter Sport,Sports,150.21,112.51,264
+121,Wife Home & Kitche,Home & Kitchen,221.49,151.05,159
+122,Huge Electronic,Electronics,100.86,80.38,226
+123,Purpose Clothin,Clothing,238.64,172.14,421
+124,Box Clothin,Clothing,101.37,57.47,473
+125,Eye Beaut,Beauty,98.33,6.74,199
+126,Understand Clothin,Clothing,128.02,122.22,216
+127,Produce Sport,Sports,196.01,161.99,340
+128,Respond Beaut,Beauty,175.59,130.33,280
+129,Off Home & Kitche,Home & Kitchen,120.23,94.5,356
+130,Way Beaut,Beauty,170.76,106.52,489
+131,While Electronic,Electronics,106.38,6.43,416
+132,Listen Home & Kitche,Home & Kitchen,175.89,114.48,77
+133,Under Home & Kitche,Home & Kitchen,189.23,138.46,5
+134,New Home & Kitche,Home & Kitchen,216.76,129.92,500
+135,Continue Beaut,Beauty,233.44,143.66,203
+136,Evidence Clothin,Clothing,111.96,34.24,494
+137,Whether Electronic,Electronics,243.28,162.06,35
+138,Respond Book,Books,203.47,133.8,477
+139,Happy Electronic,Electronics,232.56,132.8,243
+140,View Book,Books,158.89,83.9,391
+141,Glass Beaut,Beauty,281.5,198.98,213
+142,Include Beaut,Beauty,214.31,144.11,111
+143,Perform Book,Books,250.6,181.77,227
+144,Key Home & Kitche,Home & Kitchen,254.72,169.86,8
+145,You Sport,Sports,54.59,40.32,102
+146,Fact Beaut,Beauty,137.23,55.44,255
+147,For Clothin,Clothing,280.11,189.65,333
+148,Cut Electronic,Electronics,74.56,48.34,210
+149,Analysis Home & Kitche,Home & Kitchen,176.24,86.99,398
+150,Particularly Home & Kitche,Home & Kitchen,168.25,119.19,388
+151,Nature Book,Books,80.74,15.47,471
+152,Science Sport,Sports,108.39,18.89,318
+153,Gun Electronic,Electronics,215.42,174.16,200
+154,They Book,Books,101.69,15.54,82
+155,Position Clothin,Clothing,170.6,71.82,19
+156,Can Book,Books,119.86,32.93,165
+157,Lead Electronic,Electronics,165.03,100.08,416
+158,Stuff Home & Kitche,Home & Kitchen,134.18,128.73,242
+159,Look Clothin,Clothing,174.45,153.43,33
+160,Our Clothin,Clothing,178.01,100.47,327
+161,Structure Clothin,Clothing,190,124.82,130
+162,Structure Book,Books,234.66,193.24,101
+163,Hand Sport,Sports,84.33,43.89,368
+164,Fight Home & Kitche,Home & Kitchen,208.04,152.59,295
+165,Break Beaut,Beauty,80.49,5.8,313
+166,Across Beaut,Beauty,210.66,176.01,322
+167,Moment Book,Books,137.23,103.15,46
+168,Within Electronic,Electronics,95.78,63.15,410
+169,Reveal Sport,Sports,158.38,121.29,72
+170,Choice Beaut,Beauty,236.68,199.12,261
+171,Man Book,Books,97.95,75.05,160
+172,Responsibility Book,Books,35.04,8.73,263
+173,Citizen Clothin,Clothing,209.16,148.14,141
+174,Necessary Electronic,Electronics,143.29,76.49,412
+175,Figure Book,Books,205.23,175.93,378
+176,Price Sport,Sports,113.96,14.47,328
+177,Open Electronic,Electronics,139.33,132.45,431
+178,Red Electronic,Electronics,127.39,86.27,170
+179,Commercial Home & Kitche,Home & Kitchen,117.06,97.51,156
+180,Floor Beaut,Beauty,161.52,127.91,172
+181,Message Electronic,Electronics,164.83,134.18,216
+182,Fight Beaut,Beauty,115.66,31.75,468
+183,Attention Sport,Sports,161.34,145.16,189
+184,Successful Electronic,Electronics,164.92,102.06,485
+185,Financial Home & Kitche,Home & Kitchen,264.59,167.14,131
+186,Administration Beaut,Beauty,105.14,84.9,167
+187,Long Book,Books,252.9,182.52,247
+188,Amount Home & Kitche,Home & Kitchen,56.94,50.73,164
+189,Director Electronic,Electronics,236.43,167.87,120
+190,Fear Electronic,Electronics,169.14,157.01,344
+191,That Electronic,Electronics,247.64,181.43,471
+192,Personal Home & Kitche,Home & Kitchen,66.26,56.5,211
+193,Candidate Clothin,Clothing,261.42,175.46,236
+194,Argue Beaut,Beauty,141.14,65.98,269
+195,Middle Electronic,Electronics,25.04,6.89,133
+196,Follow Clothin,Clothing,159.07,69.09,478
+197,Accept Sport,Sports,131.96,57.32,79
+198,Law Home & Kitche,Home & Kitchen,83.73,40.66,32
+199,He Book,Books,99.65,58.01,51
+200,Recent Book,Books,227.62,160.98,432
+201,They Clothin,Clothing,98.19,27.05,162
+202,A Clothin,Clothing,116.79,25.22,79
+203,Apply Sport,Sports,159.51,137.29,12
+204,Enter Home & Kitche,Home & Kitchen,211.15,124.21,155
+205,Certainly Beaut,Beauty,212.23,194.82,351
+206,Hard Book,Books,71.09,27.02,53
+207,Unit Electronic,Electronics,90.86,56.01,451
+208,Federal Beaut,Beauty,182.98,107.34,218
+209,Stock Sport,Sports,144.48,48.68,320
+210,Town Home & Kitche,Home & Kitchen,176.6,106.22,459
+211,Morning Electronic,Electronics,163.44,89.41,197
+212,Reduce Home & Kitche,Home & Kitchen,200.35,134.42,316
+213,Specific Sport,Sports,242.18,178.95,354
+214,Option Beaut,Beauty,240.23,187.2,19
+215,Clear Book,Books,186.65,174.54,65
+216,Before Home & Kitche,Home & Kitchen,149.13,51.97,43
+217,Sell Sport,Sports,114.55,48.43,201
+218,Experience Clothin,Clothing,67.57,20.37,107
+219,Character Book,Books,74.51,22.16,104
+220,Significant Electronic,Electronics,272.03,196.23,30
+221,Debate Electronic,Electronics,92.07,83.67,144
+222,Lay Electronic,Electronics,246.27,166.05,212
+223,Pay Sport,Sports,218.88,129.32,76
+224,Why Clothin,Clothing,180.99,132.65,67
+225,Be Home & Kitche,Home & Kitchen,248.52,165.94,482
+226,Fill Book,Books,147.63,69.73,478
+227,Discuss Book,Books,184.26,144.75,62
+228,Almost Electronic,Electronics,91.6,24,80
+229,Material Home & Kitche,Home & Kitchen,139.45,74.25,439
+230,Worker Home & Kitche,Home & Kitchen,152.32,111.8,79
+231,Hear Electronic,Electronics,231.67,179.89,359
+232,Energy Beaut,Beauty,193.67,149.79,479
+233,Task Sport,Sports,59.67,43.2,478
+234,Resource Book,Books,130.37,47.04,184
+235,Public Beaut,Beauty,147.83,70.9,163
+236,Imagine Beaut,Beauty,229.25,168.31,122
+237,Knowledge Book,Books,155.18,94.19,258
+238,Inside Clothin,Clothing,198.36,192.95,480
+239,Well Electronic,Electronics,159,112.88,207
+240,Billion Book,Books,264.45,185.25,285
+241,Walk Clothin,Clothing,161.4,139.9,182
+242,Every Clothin,Clothing,92.65,25.19,443
+243,Wife Home & Kitche,Home & Kitchen,144.84,103.3,174
+244,Five Beaut,Beauty,184.65,153.66,467
+245,Picture Home & Kitche,Home & Kitchen,242.27,194.25,244
+246,Foreign Clothin,Clothing,156.99,85.49,370
+247,Consumer Sport,Sports,134.93,63.29,215
+248,Organization Home & Kitche,Home & Kitchen,237.69,143.82,424
+249,Least Clothin,Clothing,108.47,44.17,253
+250,Respond Beaut,Beauty,141.21,72.33,127
+251,Type Beaut,Beauty,217.05,195.16,252
+252,Future Beaut,Beauty,201.67,129.19,63
+253,Summer Home & Kitche,Home & Kitchen,175.01,114.64,134
+254,Particular Beaut,Beauty,212.52,143.47,300
+255,Chair Sport,Sports,146.25,60.76,48
+256,Result Electronic,Electronics,114.33,106.93,276
+257,Special Electronic,Electronics,159.69,135.7,6
+258,Decision Clothin,Clothing,266.71,196.79,149
+259,Enough Electronic,Electronics,172.71,139.67,474
+260,Central Sport,Sports,93.63,11.3,120
+261,Keep Sport,Sports,249.52,174.27,277
+262,Once Clothin,Clothing,208.09,149.77,239
+263,Decision Sport,Sports,238.83,157.94,264
+264,Fish Beaut,Beauty,227.6,134.58,49
+265,Focus Book,Books,289.26,191.56,62
+266,Bed Sport,Sports,91.14,15.49,30
+267,Finish Sport,Sports,261.17,174.43,198
+268,Our Clothin,Clothing,254.68,182.74,211
+269,Within Home & Kitche,Home & Kitchen,209.18,152.25,75
+270,Production Clothin,Clothing,252.96,156.35,442
+271,Main Book,Books,109.45,39.6,325
+272,Offer Clothin,Clothing,164.68,148.34,483
+273,Cover Book,Books,89.53,59.43,273
+274,How Sport,Sports,175.51,169.97,484
+275,Stay Beaut,Beauty,196.6,187.81,308
+276,Type Home & Kitche,Home & Kitchen,199.89,121.39,16
+277,These Sport,Sports,203.02,169.41,194
+278,Leave Sport,Sports,124.2,112.28,441
+279,Big Home & Kitche,Home & Kitchen,203.36,107.45,4
+280,Certainly Electronic,Electronics,178.46,158.32,438
+281,New Sport,Sports,121.86,83.67,412
+282,Letter Clothin,Clothing,170.8,134.35,148
+283,Rule Clothin,Clothing,254.05,190.31,116
+284,Form Sport,Sports,263.83,165.62,152
+285,Most Electronic,Electronics,182.78,135.44,463
+286,Worry Beaut,Beauty,188.68,124.67,107
+287,Reveal Electronic,Electronics,173.59,138.1,240
+288,Seem Electronic,Electronics,136.57,80.25,318
+289,Help Electronic,Electronics,265.81,182.71,251
+290,Management Sport,Sports,208.88,161.55,294
+291,Health Home & Kitche,Home & Kitchen,203.45,180.16,316
+292,Late Electronic,Electronics,210.8,189.9,159
+293,Man Sport,Sports,173.54,108.98,408
+294,Kitchen Beaut,Beauty,153.01,127.76,152
+295,Item Book,Books,192.48,167.95,77
+296,Main Beaut,Beauty,251.76,176.33,70
+297,Ahead Beaut,Beauty,176.12,164.27,288
+298,While Clothin,Clothing,82.73,9.63,469
+299,Operation Electronic,Electronics,41.19,19.28,79
+300,Agreement Sport,Sports,101.79,18.74,273
