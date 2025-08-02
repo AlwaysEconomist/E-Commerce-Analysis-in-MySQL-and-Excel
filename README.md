@@ -58,6 +58,9 @@ CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order
         -- A- STOCK INVENTORY MANAGEMENT : Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
+-- Helps identify products needing restocking to avoid lost sales and optimize inventory levels.
+-- Enables proactive restocking to prevent stockouts and maintain customer satisfaction. Identifies excess inventory to reduce holding costs and free up storage space.
+
 
 SELECT 
     product_id,
@@ -75,7 +78,8 @@ FROM
     bens.dim_products
 ; 
     
--- 2. What is the stock value of each category?
+-- 2. What is the stock value of each category? Provides insight into the financial value of inventory per category for better budgeting and investment decisions.
+
 
 SELECT 
     category, ROUND(SUM(price * stock), 2) AS StockValue
@@ -85,6 +89,9 @@ GROUP BY category
 ORDER BY StockValue DESC;
 
 -- 3. Which products have the highest stock-to-sales ratio?
+-- Highlights slow-moving products to adjust purchasing strategies and minimize overstock.
+-- Identifies underperforming categories to improve marketing or phase out unprofitable items.
+
 
 SELECT 
     p.product_id,
@@ -102,7 +109,8 @@ HAVING total_sold > 0
 ORDER BY stock_sales_ratio DESC
 ;
 
--- 4. Predict stock depletion based on average daily sales?
+-- 4. Predict stock depletion based on average daily sales? Allows planning for restocking to prevent shortages and ensure continuous product availability.
+
 
 WITH Avg_Daily_Sales AS (
     SELECT 
@@ -138,8 +146,9 @@ ORDER BY
                  -- B- PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
 
 
--- 5. Which products are the top 5 sellers by quantity?
+-- 5. Which products are the top 5 sellers by quantity? Highlights popular products to ensure adequate stock and promote high-demand items.
 
+ 
 SELECT 
     p.product_id,
     p.product_name,
@@ -152,7 +161,8 @@ GROUP BY p.product_id , p.product_name
 ORDER BY Total_Quantity DESC
 LIMIT 5;
 
--- 6. What is the average order value by category?
+-- 6. What is the average order value by category? Informs pricing and promotion strategies to boost profitability per category.
+ 
 
 SELECT 
     p.category AS Product_Category,
@@ -164,7 +174,8 @@ FROM
 GROUP BY Product_Category
 ORDER BY Avg_Order_Value DESC;
 
--- 7. Which products contribute to 80% of total sales (Pareto analysis)?
+-- 7. Which products contribute to 80% of total sales (Pareto analysis)?  Focuses efforts on the most impactful products to optimize sales and efficiency.
+
 
 WITH Product_Sales AS (
     SELECT 
@@ -192,7 +203,8 @@ WHERE
 ORDER BY 
     Sales_Amount DESC;
 
--- 8. What is the total sales, total cost, quantity sold, profit and profit margin by product category?
+-- 8. What is the total sales, total cost, quantity sold, profit and profit margin by product category?  Helps assess category profitability to guide pricing and cost management decisions.
+
 
 WITH Product_Sales AS (
     SELECT 
@@ -216,7 +228,8 @@ SELECT
 FROM 
     Product_Sales;
     
--- 9. Which products have the highest profit margin?
+-- 9. Which products have the highest profit margin?   Prioritizes high-margin products to maximize profit and resource allocation.
+
 
 WITH Product_Sales AS (
     SELECT 
@@ -246,7 +259,8 @@ ORDER BY 6 DESC;
  
       -- C- LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
 
--- 10. Which customers have not made any purchases/ inactive customers?
+-- 10. Which customers have not made any purchases/ inactive customers?  Targets inactive customers with re-engagement campaigns to boost sales.
+
 
 SELECT 
     *
@@ -259,7 +273,8 @@ WHERE
             bens.fact_sales);
             
 		
--- 11. Which customers ordered the same product multiple times? (repeated purchases)
+-- 11. Which customers ordered the same product multiple times? (repeated purchases)   Identifies loyal customers for targeted retention strategies and personalized offers.
+
 
 SELECT 
     c.customer_id,
@@ -286,7 +301,8 @@ HAVING
 ORDER BY 
     Total_Sales DESC;
 
--- 12. Which customers are in the top 10% by total spending?
+-- 12. Which customers are in the top 10% by total spending?  Focuses on top spenders to enhance customer retention and increase lifetime value.
+
 
 WITH CustomerSpending AS (
     SELECT 
@@ -314,7 +330,8 @@ WHERE
 ORDER BY 
     Total_Spent DESC;
     
--- 13. What is the average time between purchases for each customer? (purchases frequency)
+-- 13. What is the average time between purchases for each customer? (purchases frequency)  Measures customer loyalty and informs re-engagement timing to maintain sales momentum.
+
 
 WITH PurchaseIntervals AS (
     SELECT 
@@ -342,14 +359,16 @@ HAVING
 ORDER BY 
     Avg_Days_Between_Purchases ASC;
     
---14.  What is the average sales amount per customer?
+--14.  What is the average sales amount per customer?   
+
 
 SELECT c.customer_id, c.first_name, c.last_name, ROUND(AVG(fs.sales_amount), 2) AS avg_sales
 FROM bens.dim_customers c
 JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
 GROUP BY c.customer_id, c.first_name, c.last_name;
 
---15. Which countries have customers with no purchases in the last 90 days?
+--15. Which countries have customers with no purchases in the last 90 days?   Identifies lapsed customers for reactivation campaigns to recover lost sales.
+
 
 SELECT DISTINCT c.country
 FROM customers c
@@ -360,7 +379,8 @@ WHERE fs.sale_id IS NULL OR fs.order_date < DATE_SUB(CURDATE(), INTERVAL 90 DAY)
 	        -- D- REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
 
 
--- 16. What is the total sales amount by country?
+-- 16. What is the total sales amount by country?  Reveals geographic sales performance to tailor marketing and expansion strategies.
+
 
 SELECT 
     c.country, SUM(fs.quantity * p.price) AS Total_Sales
@@ -373,7 +393,8 @@ FROM
 GROUP BY c.country
 ORDER BY 2 DESC;
 
--- 17. What is the total sales by month and the month-over-month sales growth rate?
+-- 17. What is the total sales by month and the month-over-month sales growth rate?  Monitors sales growth to identify trends and inform strategic business adjustments.
+
 
 WITH MonthlySales AS (
     SELECT 
@@ -401,7 +422,8 @@ ORDER BY
 		 -- E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
 
     
--- 18. Which countries have the highest customer acquisition rate?
+-- 18. Which countries have the highest customer acquisition rate?  Identifies high-growth markets for targeted marketing and expansion efforts.
+
 
 SELECT 
     c.country,
@@ -414,7 +436,8 @@ GROUP BY
 ORDER BY 
     New_Customers DESC;
 
--- 19. How are customers segmented by total spending?
+-- 19. How are customers segmented by total spending?  Enables tailored marketing strategies for different spending segments to maximize revenue.
+
 
 SELECT 
     c.customer_id,
@@ -434,7 +457,8 @@ ORDER BY
     c.customer_id,
     Total_Spent DESC;
 
--- 20. What is the distribution of marital status among top-spending customers?
+-- 20. What is the distribution of marital status among top-spending customers?  Informs personalized offers for top spenders based on marital status insights.
+
 
 WITH TopSpenders AS (
     SELECT 
@@ -463,7 +487,8 @@ GROUP BY
 ORDER BY 
     Top_Spender_Count DESC;
 
--- 21. Which gender and marital status combinations have the highest order frequency?
+-- 21. Which gender and marital status combinations have the highest order frequency?  Identifies high-frequency buyer demographics for targeted retention strategies.
+
 
 SELECT 
     c.gender,
@@ -484,7 +509,8 @@ ORDER BY
 LIMIT 
     5;
     
--- 22 . How do age groups differ in their purchasing behavior by category?
+-- 22 . How do age groups differ in their purchasing behavior by category? Helps customize inventory and promotions to match age-based buying preferences.
+
 
 WITH AgeSegment AS (
     SELECT 
@@ -514,6 +540,8 @@ ORDER BY
     Purchase_Count DESC;
 
  
+-- 23. What is the churn rate of customers who joined this year?   Measures new customer retention to improve onboarding and reduce turnover.
+
 
 
 
