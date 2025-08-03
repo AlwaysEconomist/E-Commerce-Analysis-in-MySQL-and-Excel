@@ -12,7 +12,7 @@
 This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address 25 specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies
 
 ### Data Sources 
-The database consists of three main tables: dim_customers, which stores customer details like customer_id, first_name, last_name, email, country, join_date, gender, marital_status, and birth_date; fact_sales, which tracks sales data with sale_id, customer_id, product_id, order_date, quantity, and sales_amount; and dim_products, which holds product information including product_id, product_name, category, price, and stock. These dimensions tables (customers and products) are joined to the fact sales table using customer_id and product_id.
+The database consists of three main tables: dim_customers, which stores customer details, fact_sales which tracks sales data and dim_products, which holds product information. These dimensions tables (customers and products) are joined to the fact sales table using customer_id and product_id.
 
 ### Tools used for this project
 
@@ -36,6 +36,7 @@ The database consists of three main tables: dim_customers, which stores customer
  - What are the peak sales period?
 
 ### Data Analysis
+
 ```sql 
 CREATE DATABASE bens;
 
@@ -90,7 +91,7 @@ CREATE INDEX idx_fact_sales_order_date ON bens.fact_sales (order_date);
 CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order_date);
 
     
-A-STOCK INVENTORY MANAGEMENT: Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
+--A. STOCK INVENTORY MANAGEMENT: Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
 -- Helps identify products needing restocking to avoid lost sales and optimize inventory levels.
@@ -179,7 +180,7 @@ ORDER BY
     Days_Until_Depletion DESC;
     
 
- B- PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
+ --B. PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
 
 -- 5. Which products are the top 5 sellers by quantity?
 -- Highlights popular products to ensure adequate stock and promote high-demand items.
@@ -296,7 +297,7 @@ FROM
 ORDER BY 6 DESC;
 
 
-      C- LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
+      --C. LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
 
 -- 10. Which customers have not made any purchases/ inactive customers?
 --  Targets inactive customers with re-engagement campaigns to boost sales.
@@ -420,7 +421,7 @@ LEFT JOIN fact_sales fs ON c.customer_id = fs.customer_id
 WHERE fs.sale_id IS NULL OR fs.order_date < DATE_SUB(CURDATE(), INTERVAL 90 DAY);
 
 
-          D- REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
+   --D. REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
 
 -- 16. What is the total sales amount by country?
 -- Reveals geographic sales performance to tailor marketing and expansion strategies.
@@ -464,7 +465,7 @@ ORDER BY
     Sales_Month;
 
 
-  E- CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
+  --E. CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
     
 -- 18. Which countries have the highest customer acquisition rate?
 --  Identifies high-growth markets for targeted marketing and expansion efforts.
