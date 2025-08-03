@@ -37,7 +37,10 @@ The database consists of three main tables: dim_customers, which stores customer
 
 ### Data Analysis
 
-```sql 
+```sql
+
+-- Database Structure
+
 CREATE DATABASE bens;
 
 CREATE TABLE dim_customers (
@@ -71,7 +74,7 @@ CREATE TABLE fact_sales (
     FOREIGN KEY (product_id) REFERENCES product(product_id)
 );
 
-      QUERY OPTIMIZATION THROUGH INDEXES
+      -- QUERY OPTIMIZATION THROUGH INDEXES
                          
 -- Customer_id is already indexed as PRIMARY KEY
 CREATE INDEX idx_customers_country ON bens.dim_customers (country);
@@ -91,7 +94,7 @@ CREATE INDEX idx_fact_sales_order_date ON bens.fact_sales (order_date);
 CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order_date);
 
     
---A. STOCK INVENTORY MANAGEMENT: Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
+-- A. STOCK INVENTORY MANAGEMENT: Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
 -- Helps identify products needing restocking to avoid lost sales and optimize inventory levels.
@@ -180,7 +183,7 @@ ORDER BY
     Days_Until_Depletion DESC;
     
 
- --B. PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
+ -- B. PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
 
 -- 5. Which products are the top 5 sellers by quantity?
 -- Highlights popular products to ensure adequate stock and promote high-demand items.
@@ -297,7 +300,7 @@ FROM
 ORDER BY 6 DESC;
 
 
-      --C. LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
+      -- C. LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
 
 -- 10. Which customers have not made any purchases/ inactive customers?
 --  Targets inactive customers with re-engagement campaigns to boost sales.
@@ -421,7 +424,7 @@ LEFT JOIN fact_sales fs ON c.customer_id = fs.customer_id
 WHERE fs.sale_id IS NULL OR fs.order_date < DATE_SUB(CURDATE(), INTERVAL 90 DAY);
 
 
-   --D. REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
+   -- D. REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
 
 -- 16. What is the total sales amount by country?
 -- Reveals geographic sales performance to tailor marketing and expansion strategies.
@@ -465,7 +468,7 @@ ORDER BY
     Sales_Month;
 
 
-  --E. CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
+  -- E. CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
     
 -- 18. Which countries have the highest customer acquisition rate?
 --  Identifies high-growth markets for targeted marketing and expansion efforts.
