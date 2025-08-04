@@ -11,6 +11,12 @@
 ### Project Overview
 This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address 24 specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
+
+<img width="776" height="445" alt="image" src="https://github.com/user-attachments/assets/8af894f3-a4b8-44cb-b08c-8ce9a26fe3e4" />
+
+
+
+
 ### Data Sources 
 The database consists of three main tables: dim_customers, which stores customer details, fact_sales which tracks sales data and dim_products, which holds product information. These dimensions tables (customers and products) are joined to the fact sales table using customer_id and product_id.
 
@@ -492,8 +498,8 @@ ORDER BY
 SELECT 
     c.customer_id,
     CASE 
-        WHEN SUM(fs.quantity * p.price) > 50000 THEN 'High Spenders'
-        WHEN SUM(fs.quantity * p.price) BETWEEN 10000 AND 50000 THEN 'Medium Spenders'
+        WHEN SUM(fs.quantity * p.price) > 10000 THEN 'High Spenders'
+        WHEN SUM(fs.quantity * p.price) BETWEEN 5000 AND 10000 THEN 'Medium Spenders'
         ELSE 'Low Spenders'
     END AS Spending_Segment,
     ROUND(SUM(fs.quantity * p.price), 2) AS Total_Spent
