@@ -9,7 +9,7 @@
  - [References](#references)
 
 ### Project Overview
-This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address 25 specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies
+This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address 24 specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
 ### Data Sources 
 The database consists of three main tables: dim_customers, which stores customer details, fact_sales which tracks sales data and dim_products, which holds product information. These dimensions tables (customers and products) are joined to the fact sales table using customer_id and product_id.
@@ -57,7 +57,7 @@ CREATE TABLE dim_customers (
 
 CREATE TABLE dim_products (
     product_id INT PRIMARY KEY,
-    product_name VARCHAR(100),
+    product_name VARCHAR(50),
     category VARCHAR(50),
     price DECIMAL(10,2),
     cost DECIMAL(10,2),
@@ -593,9 +593,63 @@ ORDER BY
     Purchase_Count DESC;
 
  
--- 23. What is the churn rate of customers who joined this year?
---  Measures new customer retention to improve onboarding and reduce turnover.
+-- 23. What is the churn rate of customers who joined this year?  
+-- Measures new customer retention to improve onboarding and reduce turnover.
 
+WITH ActiveCustomers AS (
+    SELECT 
+        c.customer_id,
+        MIN(fs.order_date) AS First_Purchase
+    FROM 
+        bens.dim_customers c
+        JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
+    WHERE 
+        c.join_date >= '2025-01-01' AND c.join_date <= CURDATE()
+    GROUP BY 
+        c.customer_id
+)
+SELECT 
+    COUNT(*) AS Total_New_Customers,
+    COUNT(CASE 
+        WHEN NOT EXISTS (
+            SELECT 1 
+            FROM bens.fact_sales fs2 
+            WHERE fs2.customer_id = ac.customer_id 
+            AND fs2.order_date > DATE_ADD(ac.First_Purchase, INTERVAL 1 MONTH)
+        ) THEN 1 
+        ELSE NULL 
+    END) AS Churned_Customers,
+    ROUND((COUNT(CASE WHEN NOT EXISTS (
+        SELECT 1 
+        FROM bens.fact_sales fs2 
+        WHERE fs2.customer_id = ac.customer_id 
+        AND fs2.order_date > DATE_ADD(ac.First_Purchase, INTERVAL 1 MONTH)
+    ) THEN 1 ELSE NULL END) * 100.0 / COUNT(*)), 2) AS Churn_Rate_Percent
+FROM 
+    ActiveCustomers ac;
+
+
+-- 24. Which customers are segmented by recency of purchase (last 30, 60, 90 days)?
+-- Helps you send reminders to customers who haven’t purchased in a while!
+
+SELECT 
+    c.customer_id,
+    CONCAT(c.last_name, ' ', c.first_name) AS FullName,
+    CASE 
+        WHEN MAX(fs.order_date) >= DATE_SUB(CURDATE(), INTERVAL 30 DAY) THEN 'Active (0-30 days)'
+        WHEN MAX(fs.order_date) >= DATE_SUB(CURDATE(), INTERVAL 60 DAY) THEN 'Recent (31-60 days)'
+        WHEN MAX(fs.order_date) >= DATE_SUB(CURDATE(), INTERVAL 90 DAY) THEN 'Lapsed (61-90 days)'
+        ELSE 'Inactive (>90 days)'
+    END AS Recency_Segment
+FROM 
+    bens.dim_customers c
+    LEFT JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
+GROUP BY 
+    c.customer_id,
+    c.first_name,
+    c.last_name
+ORDER BY 
+    FIELD(Recency_Segment, 'Active (0-30 days)', 'Recent (31-60 days)', 'Lapsed (61-90 days)', 'Inactive (>90 days)');
 ```
 
 
