@@ -135,26 +135,6 @@ FROM
 GROUP BY category
 ORDER BY StockValue DESC;
 
--- 3. Which products have the highest stock-to-sales ratio?
--- Highlights slow-moving products to adjust purchasing strategies and minimize overstock.
--- Identifies underperforming categories to improve marketing or phase out unprofitable items.
-
-SELECT 
-    p.product_id,
-    p.category,
-    p.product_name,
-    p.stock,
-    COALESCE(SUM(fs.quantity), 0) AS total_sold,
-    ROUND(p.stock / NULLIF(SUM(fs.quantity), 0), 2) AS stock_sales_ratio
-FROM
-    bens.dim_products p
-        LEFT JOIN
-    bens.fact_sales fs ON p.product_id = fs.product_id
-GROUP BY p.product_id , p.category, p.product_name , p.stock
-HAVING total_sold > 0
-ORDER BY stock_sales_ratio DESC
-;
-
 -- 4. Predict stock depletion based on average daily sales?
 -- Allows planning for restocking to prevent shortages and ensure continuous product availability.
 
