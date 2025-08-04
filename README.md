@@ -9,7 +9,7 @@
  - [References](#references)
 
 ### Project Overview
-This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address 24 specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
+This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address some specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
 
 <img width="769" height="451" alt="image" src="https://github.com/user-attachments/assets/fdf87edc-39d4-4f2c-914b-4898ab80f870" />
@@ -106,10 +106,8 @@ CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order
 -- A. STOCK INVENTORY MANAGEMENT: Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
--- Helps identify products needing restocking to avoid lost sales and optimize inventory levels.
--- Enables proactive restocking to prevent stockouts and maintain customer satisfaction.
--- Identifies excess inventory to reduce holding costs and free up storage space.
-
+-- Helps identify products needing restocking to prevent stockouts and optimize inventory levels, while reducing excess inventory to lower holding costs and free up storage space.
+-- The inventory reveals that 40% of products are overstocked, 28% maintain normal stock levels, 30% are at risk of stockout, and a mere 2% are out of stock, emphasizing the need for strategic adjustments to optimize stock distribution and prevent potential sales losses.
 
 SELECT 
     product_id,
@@ -130,7 +128,6 @@ FROM
 -- 2. What is the stock value of each category?
 -- Provides insight into the financial value of inventory per category for better budgeting and investment decisions.
 
-
 SELECT 
     category, ROUND(SUM(price * stock), 2) AS StockValue
 FROM
@@ -141,7 +138,6 @@ ORDER BY StockValue DESC;
 -- 3. Which products have the highest stock-to-sales ratio?
 -- Highlights slow-moving products to adjust purchasing strategies and minimize overstock.
 -- Identifies underperforming categories to improve marketing or phase out unprofitable items.
-
 
 SELECT 
     p.product_id,
@@ -161,7 +157,6 @@ ORDER BY stock_sales_ratio DESC
 
 -- 4. Predict stock depletion based on average daily sales?
 -- Allows planning for restocking to prevent shortages and ensure continuous product availability.
-
 
 WITH Avg_Daily_Sales AS (
     SELECT 
@@ -196,7 +191,6 @@ ORDER BY
 
 -- 5. Which products are the top 5 sellers by quantity?
 -- Highlights popular products to ensure adequate stock and promote high-demand items.
-
  
 SELECT 
     p.product_id,
@@ -213,7 +207,6 @@ LIMIT 5;
 -- 6. What is the average order value by category?
 -- Informs pricing and promotion strategies to boost profitability per category.
  
-
 SELECT 
     p.category AS Product_Category,
     ROUND(AVG(p.price * fs.quantity), 2) AS Avg_Order_Value
@@ -226,7 +219,8 @@ ORDER BY Avg_Order_Value DESC;
 
 -- 7. Which products contribute to 80% of total sales (Pareto analysis)?
 -- Focuses efforts on the most impactful products to optimize sales and efficiency.
-
+-- 80% of the store's revenue is driven by just 26 products, accounting for 52% of the total product lineup (50 products),
+ with 6 standout performers (Move Plus, Bring Pro, Her Lite, Thank Lite, Voice Pro, and Compare Plus) each generating over $1 million. 
 
 WITH Product_Sales AS (
     SELECT 
@@ -256,7 +250,9 @@ ORDER BY
 
 -- 8. What is the total sales, total cost, quantity sold, profit and profit margin by product category?
 --  Helps assess category profitability to guide pricing and cost management decisions.
-
+-- The profit margin across each product category ranges from a solid 29% to 33%,
+reflecting a healthy and consistent profitability that strengthens the store's financial performance and supports future growth initiatives.
+-- The categories of Home Appliances, Sports, and Electronics emerge as top performers, each generating revenue exceeding $5 million, underscoring their  significant contribution to the store's overall financial success and highlighting key areas for strategic focus and investment.
 
 WITH Product_Sales AS (
     SELECT 
@@ -282,7 +278,8 @@ FROM
     
 -- 9. Which products have the highest profit margin?
 --  Prioritizes high-margin products to maximize profit and resource allocation.
-
+-- The top 10 products boasting an impressive profit margin of approximately 50% are predominantly from the home appliances and sports categories,
+ highlighting these segments as key drivers of high profitability and potential areas for targeted expansion.
 
 WITH Product_Sales AS (
     SELECT 
@@ -313,7 +310,7 @@ ORDER BY 6 DESC;
 
 -- 10. Which customers have not made any purchases/ inactive customers?
 --  Targets inactive customers with re-engagement campaigns to boost sales.
-
+--  An impressive 86% of customers in the database have made at least one purchase, reflecting an outstanding conversion rate that showcases the store's ability to effectively turn visitors into loyal buyers, with a remarkably low churn rate among new sign-ups.
 
 SELECT 
     *
@@ -325,39 +322,9 @@ WHERE
         FROM
             bens.fact_sales);
             
-		
--- 11. Which customers ordered the same product multiple times? (repeated purchases)
---  Identifies loyal customers for targeted retention strategies and personalized offers.
-
-
-SELECT 
-    c.customer_id,
-    CONCAT(c.last_name, ' ', c.first_name) AS FullName,
-    COUNT(DISTINCT CASE 
-        WHEN fs.product_id = ANY (
-            SELECT product_id 
-            FROM bens.fact_sales fs2 
-            WHERE fs2.customer_id = c.customer_id 
-            GROUP BY product_id 
-            HAVING COUNT(*) > 1
-        ) THEN fs.product_id 
-        ELSE NULL 
-    END) AS Number_Of_Repeated_Products,
-    SUM(fs.quantity * p.price) AS Total_Sales
-FROM 
-    bens.dim_customers c
-    JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
-    JOIN bens.dim_products p ON fs.product_id = p.product_id
-GROUP BY 
-    c.customer_id
-HAVING 
-    Number_Of_Repeated_Products > 1 
-ORDER BY 
-    Total_Sales DESC;
 
 -- 12. Which customers are in the top 10% by total spending?
 -- Focuses on top spenders to enhance customer retention and increase lifetime value.
-
 
 WITH CustomerSpending AS (
     SELECT 
@@ -388,7 +355,6 @@ ORDER BY
 -- 13. What is the average time between purchases for each customer? (purchases frequency)
 -- Measures customer loyalty and informs re-engagement timing to maintain sales momentum.
 
-
 WITH PurchaseIntervals AS (
     SELECT 
         customer_id,
@@ -417,27 +383,16 @@ ORDER BY
     
 --14.  What is the average sales amount per customer?   
 
-
 SELECT c.customer_id, c.first_name, c.last_name, ROUND(AVG(fs.sales_amount), 2) AS avg_sales
 FROM bens.dim_customers c
 JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
 GROUP BY c.customer_id, c.first_name, c.last_name;
 
---15. Which countries have customers with no purchases in the last 90 days?
--- Identifies lapsed customers for reactivation campaigns to recover lost sales.
-
-
-SELECT DISTINCT c.country
-FROM customers c
-LEFT JOIN fact_sales fs ON c.customer_id = fs.customer_id
-WHERE fs.sale_id IS NULL OR fs.order_date < DATE_SUB(CURDATE(), INTERVAL 90 DAY);
-
 
    -- D. REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
 
--- 16. What is the total sales amount by country?
+-- 15. What is the total sales amount by country?
 -- Reveals geographic sales performance to tailor marketing and expansion strategies.
-
 
 SELECT 
     c.country, SUM(fs.quantity * p.price) AS Total_Sales
@@ -450,9 +405,8 @@ FROM
 GROUP BY c.country
 ORDER BY 2 DESC;
 
--- 17. What is the total sales by month and the month-over-month sales growth rate?
+-- 16. What is the total sales by month and the month-over-month sales growth rate?
 --  Monitors sales growth to identify trends and inform strategic business adjustments.
-
 
 WITH MonthlySales AS (
     SELECT 
@@ -479,9 +433,9 @@ ORDER BY
 
   -- E. CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
     
--- 18. Which countries have the highest customer acquisition rate?
+-- 17. Which countries have the highest customer acquisition rate?
 --  Identifies high-growth markets for targeted marketing and expansion efforts.
-
+-- The total customer acquisition rate across countries remains stable at approximately 20%, indicating a consistent and reliable growth in new customers that supports the store's ongoing expansion and market penetration efforts.
 
 SELECT 
     c.country,
@@ -494,9 +448,9 @@ GROUP BY
 ORDER BY 
     New_Customers DESC;
 
--- 19. How are customers segmented by total spending?
+-- 18. How are customers segmented by total spending?
 --  Enables tailored marketing strategies for different spending segments to maximize revenue.
-
+-- An overwhelming 98% of customers spend between $0 and $10,000 in the store, highlighting a broad base of low-to-mid-range spenders that underscores the need for targeted strategies to encourage higher spending among this dominant segment.
 
 SELECT 
     c.customer_id,
@@ -516,9 +470,8 @@ ORDER BY
     c.customer_id,
     Total_Spent DESC;
 
--- 20. What is the distribution of marital status among top-spending customers?
+-- 19. What is the distribution of marital status among top-spending customers?
 --  Informs personalized offers for top spenders based on marital status insights.
-
 
 WITH TopSpenders AS (
     SELECT 
@@ -547,9 +500,8 @@ GROUP BY
 ORDER BY 
     Top_Spender_Count DESC;
 
--- 21. Which gender and marital status combinations have the highest order frequency?
+-- 20. Which gender and marital status combinations have the highest order frequency?
 --  Identifies high-frequency buyer demographics for targeted retention strategies.
-
 
 SELECT 
     c.gender,
@@ -570,9 +522,8 @@ ORDER BY
 LIMIT 
     5;
     
--- 22 . How do age groups differ in their purchasing behavior by category?
+-- 21 . How do age groups differ in their purchasing behavior by category?
 -- Helps customize inventory and promotions to match age-based buying preferences.
-
 
 WITH AgeSegment AS (
     SELECT 
@@ -601,8 +552,7 @@ ORDER BY
     asg.Age_Group,
     Purchase_Count DESC;
 
- 
--- 23. What is the churn rate of customers who joined this year?  
+-- 22. What is the churn rate of customers who joined this year?  
 -- Measures new customer retention to improve onboarding and reduce turnover.
 
 WITH ActiveCustomers AS (
@@ -638,7 +588,7 @@ FROM
     ActiveCustomers ac;
 
 
--- 24. Which customers are segmented by recency of purchase (last 30, 60, 90 days)?
+-- 23. Which customers are segmented by recency of purchase (last 30, 60, 90 days)?
 -- Helps you send reminders to customers who haven’t purchased in a while!
 
 SELECT 
