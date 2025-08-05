@@ -354,9 +354,10 @@ ORDER BY
     
 --12.  What is the average sales amount per customer?   
 
-SELECT c.customer_id, c.first_name, c.last_name, ROUND(AVG(fs.sales_amount), 2) AS avg_sales
+SELECT 
+    c.customer_id, c.first_name, c.last_name, ROUND(AVG(fs.sales_amount), 2) AS avg_sales
 FROM bens.dim_customers c
-JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
+     JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
 GROUP BY c.customer_id, c.first_name, c.last_name;
 
 
@@ -594,12 +595,7 @@ ORDER BY
    
  - 80% of the store's revenue is driven by just 26 products, accounting for 52% of the total product lineup (50 products),
  with 6 standout performers (Move Plus, Bring Pro, Her Lite, Thank Lite, Voice Pro, and Compare Plus) each generating over $1 million.
- - The profit margin across each product category ranges from a solid 29% to 33%,
-   
- <img width="777" height="457" alt="image" src="https://github.com/user-attachments/assets/b418b950-4669-46db-b5bc-ce112254c5d1" />
-
-   
-reflecting a healthy and consistent profitability that strengthens the store's financial performance and supports future growth initiatives.
+ - The profit margin across each product category ranges from a solid 29% to 33%, reflecting a healthy and consistent profitability that strengthens the store's financial performance and supports future growth initiatives.
  - The categories of Home Appliances, Sports, and Electronics emerge as top performers, each generating revenue exceeding $5 million, underscoring their  significant contribution to the store's overall financial success and highlighting key areas for strategic focus and investment.
  - The top 10 products boasting an impressive profit margin of approximately 50% are predominantly from the home appliances and sports categories,
  highlighting these segments as key drivers of high profitability and potential areas for targeted expansion.
@@ -608,11 +604,6 @@ reflecting a healthy and consistent profitability that strengthens the store's f
  - An overwhelming 98% of customers spend between $0 and $10,000 in the store, highlighting a broad base of low-to-mid-range spenders that underscores the need for targeted strategies to encourage higher spending among this dominant segment.
  - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
  - The analysis shows monthly sales fluctuating between $970K and $1.5M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
-
-   
-<img width="1305" height="712" alt="image" src="https://github.com/user-attachments/assets/3e2f4367-dd8a-441c-9275-20b1db4e5ec7" />
-
-
 
  
 ### Recommendations
