@@ -5,7 +5,6 @@
  - [Data Analysis](#data-analysis)
  - [Results and Findings](#results-and-findings)
  - [Recommendations](#recommendations)
- - [Limitations](#limitations)
  - [References](#references)
 
 ### Project Overview
@@ -590,7 +589,8 @@ ORDER BY
    
  - Based on the average daily sales, electronics and books are projected to be out of stock within 90 days, necessitating urgent restocking efforts for these high-demand categories. In contrast, other product categories are expected to last up to five months, allowing for more flexible inventory planning and management.
    
-<img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/72465b40-d381-40bb-a2e7-af0c4b458b66" />
+<img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/47bdef59-e3c0-4cae-a27b-121f9d10650e" />
+
 
    
  - 80% of the store's revenue is driven by just 26 products, accounting for 52% of the total product lineup (50 products),
@@ -605,7 +605,8 @@ ORDER BY
  - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
  - The analysis shows monthly sales fluctuating between $970K and $1.4M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
 
- <img width="1273" height="641" alt="image" src="https://github.com/user-attachments/assets/a6fe4772-3f4c-41e5-9758-db97da7ddcbd" />
+ <img width="1273" height="641" alt="image" src="https://github.com/user-attachments/assets/62ef6bf8-f51b-4a7b-a75f-700e42277655" />
+
 
 ### Recommendations
  - Prioritize restocking electronics and books within the next 90 days to avoid stockouts, while optimizing overstocked inventory (40%) by redistributing excess stock to high-demand categories or offering promotions to clear surplus.
