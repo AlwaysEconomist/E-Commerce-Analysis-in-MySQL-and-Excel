@@ -107,7 +107,6 @@ CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
 -- Helps identify products needing restocking to prevent stockouts and optimize inventory levels, while reducing excess inventory to lower holding costs and free up storage space.
--- The inventory reveals that 40% of products are overstocked, 28% maintain normal stock levels, 30% are at risk of stockout, and a mere 2% are out of stock, emphasizing the need for strategic adjustments to optimize stock distribution and prevent potential sales losses.
 
 SELECT 
     product_id,
@@ -135,7 +134,7 @@ FROM
 GROUP BY category
 ORDER BY StockValue DESC;
 
--- 4. Predict stock depletion based on average daily sales?
+-- 3. Predict stock depletion based on average daily sales?
 -- Allows planning for restocking to prevent shortages and ensure continuous product availability.
 
 WITH Avg_Daily_Sales AS (
@@ -169,7 +168,7 @@ ORDER BY
 
  -- B. PRODUCT PERFORMANCE: Analyzes product sales, profitability, and market trends to guide product strategy.
 
--- 5. Which products are the top 5 sellers by quantity?
+-- 4. Which products are the top 5 sellers by quantity?
 -- Highlights popular products to ensure adequate stock and promote high-demand items.
  
 SELECT 
@@ -184,7 +183,7 @@ GROUP BY p.product_id , p.product_name
 ORDER BY Total_Quantity DESC
 LIMIT 5;
 
--- 6. What is the average order value by category?
+-- 5. What is the average order value by category?
 -- Informs pricing and promotion strategies to boost profitability per category.
  
 SELECT 
@@ -197,10 +196,8 @@ FROM
 GROUP BY Product_Category
 ORDER BY Avg_Order_Value DESC;
 
--- 7. Which products contribute to 80% of total sales (Pareto analysis)?
+-- 6. Which products contribute to 80% of total sales (Pareto analysis)?
 -- Focuses efforts on the most impactful products to optimize sales and efficiency.
--- 80% of the store's revenue is driven by just 26 products, accounting for 52% of the total product lineup (50 products),
- with 6 standout performers (Move Plus, Bring Pro, Her Lite, Thank Lite, Voice Pro, and Compare Plus) each generating over $1 million. 
 
 WITH Product_Sales AS (
     SELECT 
@@ -228,11 +225,8 @@ WHERE
 ORDER BY 
     Sales_Amount DESC;
 
--- 8. What is the total sales, total cost, quantity sold, profit and profit margin by product category?
+-- 7. What is the total sales, total cost, quantity sold, profit and profit margin by product category?
 --  Helps assess category profitability to guide pricing and cost management decisions.
--- The profit margin across each product category ranges from a solid 29% to 33%,
-reflecting a healthy and consistent profitability that strengthens the store's financial performance and supports future growth initiatives.
--- The categories of Home Appliances, Sports, and Electronics emerge as top performers, each generating revenue exceeding $5 million, underscoring their  significant contribution to the store's overall financial success and highlighting key areas for strategic focus and investment.
 
 WITH Product_Sales AS (
     SELECT 
@@ -256,10 +250,8 @@ SELECT
 FROM 
     Product_Sales;
     
--- 9. Which products have the highest profit margin?
+-- 8. Which products have the highest profit margin?
 --  Prioritizes high-margin products to maximize profit and resource allocation.
--- The top 10 products boasting an impressive profit margin of approximately 50% are predominantly from the home appliances and sports categories,
- highlighting these segments as key drivers of high profitability and potential areas for targeted expansion.
 
 WITH Product_Sales AS (
     SELECT 
@@ -288,9 +280,8 @@ ORDER BY 6 DESC;
 
       -- C. LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
 
--- 10. Which customers have not made any purchases/ inactive customers?
+-- 9. Which customers have not made any purchases/ inactive customers?
 --  Targets inactive customers with re-engagement campaigns to boost sales.
---  An impressive 86% of customers in the database have made at least one purchase, reflecting an outstanding conversion rate that showcases the store's ability to effectively turn visitors into loyal buyers, with a remarkably low churn rate among new sign-ups.
 
 SELECT 
     *
@@ -303,7 +294,7 @@ WHERE
             bens.fact_sales);
             
 
--- 12. Which customers are in the top 10% by total spending?
+-- 10. Which customers are in the top 10% by total spending?
 -- Focuses on top spenders to enhance customer retention and increase lifetime value.
 
 WITH CustomerSpending AS (
@@ -332,7 +323,7 @@ WHERE
 ORDER BY 
     Total_Spent DESC;
     
--- 13. What is the average time between purchases for each customer? (purchases frequency)
+-- 11. What is the average time between purchases for each customer? (purchases frequency)
 -- Measures customer loyalty and informs re-engagement timing to maintain sales momentum.
 
 WITH PurchaseIntervals AS (
@@ -361,7 +352,7 @@ HAVING
 ORDER BY 
     Avg_Days_Between_Purchases ASC;
     
---14.  What is the average sales amount per customer?   
+--12.  What is the average sales amount per customer?   
 
 SELECT c.customer_id, c.first_name, c.last_name, ROUND(AVG(fs.sales_amount), 2) AS avg_sales
 FROM bens.dim_customers c
@@ -371,7 +362,7 @@ GROUP BY c.customer_id, c.first_name, c.last_name;
 
    -- D. REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
 
--- 15. What is the total sales amount by country?
+-- 13. What is the total sales amount by country?
 -- Reveals geographic sales performance to tailor marketing and expansion strategies.
 
 SELECT 
@@ -385,7 +376,7 @@ FROM
 GROUP BY c.country
 ORDER BY 2 DESC;
 
--- 16. What is the total sales by month and the month-over-month sales growth rate?
+-- 14. What is the total sales by month and the month-over-month sales growth rate?
 --  Monitors sales growth to identify trends and inform strategic business adjustments.
 
 WITH MonthlySales AS (
@@ -413,9 +404,8 @@ ORDER BY
 
   -- E. CUSTOMER ACQUISITION, SEGMENTATION AND RENTENTION RATE : Focuses on attracting new customers and retaining existing ones.
     
--- 17. Which countries have the highest customer acquisition rate?
+-- 15. Which countries have the highest customer acquisition rate?
 --  Identifies high-growth markets for targeted marketing and expansion efforts.
--- The total customer acquisition rate across countries remains stable at approximately 20%, indicating a consistent and reliable growth in new customers that supports the store's ongoing expansion and market penetration efforts.
 
 SELECT 
     c.country,
@@ -428,9 +418,8 @@ GROUP BY
 ORDER BY 
     New_Customers DESC;
 
--- 18. How are customers segmented by total spending?
+-- 16. How are customers segmented by total spending?
 --  Enables tailored marketing strategies for different spending segments to maximize revenue.
--- An overwhelming 98% of customers spend between $0 and $10,000 in the store, highlighting a broad base of low-to-mid-range spenders that underscores the need for targeted strategies to encourage higher spending among this dominant segment.
 
 SELECT 
     c.customer_id,
@@ -450,7 +439,7 @@ ORDER BY
     c.customer_id,
     Total_Spent DESC;
 
--- 19. What is the distribution of marital status among top-spending customers?
+-- 17. What is the distribution of marital status among top-spending customers?
 --  Informs personalized offers for top spenders based on marital status insights.
 
 WITH TopSpenders AS (
@@ -480,7 +469,7 @@ GROUP BY
 ORDER BY 
     Top_Spender_Count DESC;
 
--- 20. Which gender and marital status combinations have the highest order frequency?
+-- 18. Which gender and marital status combinations have the highest order frequency?
 --  Identifies high-frequency buyer demographics for targeted retention strategies.
 
 SELECT 
@@ -502,7 +491,7 @@ ORDER BY
 LIMIT 
     5;
     
--- 21 . How do age groups differ in their purchasing behavior by category?
+-- 19 . How do age groups differ in their purchasing behavior by category?
 -- Helps customize inventory and promotions to match age-based buying preferences.
 
 WITH AgeSegment AS (
@@ -532,7 +521,7 @@ ORDER BY
     asg.Age_Group,
     Purchase_Count DESC;
 
--- 22. What is the churn rate of customers who joined this year?  
+-- 20. What is the churn rate of customers who joined this year?  
 -- Measures new customer retention to improve onboarding and reduce turnover.
 
 WITH ActiveCustomers AS (
@@ -568,7 +557,7 @@ FROM
     ActiveCustomers ac;
 
 
--- 23. Which customers are segmented by recency of purchase (last 30, 60, 90 days)?
+-- 21. Which customers are segmented by recency of purchase (last 30, 60, 90 days)?
 -- Helps you send reminders to customers who haven’t purchased in a while!
 
 SELECT 
@@ -592,25 +581,37 @@ ORDER BY
 ```
 
 
-
 ### Results and Findings
-
-
-
-
+ - The inventory reveals that 40% of products are overstocked, 28% maintain normal stock levels, 30% are at risk of stockout, and a mere 2% are out of stock, emphasizing the need for strategic adjustments to optimize stock distribution and prevent potential sales losses.
+ - Based on the average daily sales, electronics and books are projected to be out of stock within 90 days, necessitating urgent restocking efforts for these high-demand categories. In contrast, other product categories are expected to last up to five months, allowing for more flexible inventory planning and management.
+ - 80% of the store's revenue is driven by just 26 products, accounting for 52% of the total product lineup (50 products),
+ with 6 standout performers (Move Plus, Bring Pro, Her Lite, Thank Lite, Voice Pro, and Compare Plus) each generating over $1 million.
+ - The profit margin across each product category ranges from a solid 29% to 33%,
+reflecting a healthy and consistent profitability that strengthens the store's financial performance and supports future growth initiatives.
+ - The categories of Home Appliances, Sports, and Electronics emerge as top performers, each generating revenue exceeding $5 million, underscoring their  significant contribution to the store's overall financial success and highlighting key areas for strategic focus and investment.
+ - The top 10 products boasting an impressive profit margin of approximately 50% are predominantly from the home appliances and sports categories,
+ highlighting these segments as key drivers of high profitability and potential areas for targeted expansion.
+ - An impressive 86% of customers in the database have made at least one purchase, reflecting an outstanding conversion rate that showcases the store's ability to effectively turn visitors into loyal buyers, but 80% of them are inactive that means they do not make any purchases for more than 90 days.
+ - The total customer acquisition rate across countries remains stable at approximately 20%, indicating a consistent and reliable growth in new customers that supports the store's ongoing expansion and market penetration efforts.
+ - An overwhelming 98% of customers spend between $0 and $10,000 in the store, highlighting a broad base of low-to-mid-range spenders that underscores the need for targeted strategies to encourage higher spending among this dominant segment.
+ - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
+ - The analysis shows monthly sales fluctuating between $300K and $1.5M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
+ 
 ### Recommendations
+ - Prioritize restocking electronics and books within the next 90 days to avoid stockouts, while optimizing overstocked inventory (40%) by redistributing excess stock to high-demand categories or offering promotions to clear surplus.
+ - Focus marketing and inventory investment on the top-performing categories (Home Appliances, Sports, Electronics) and the 6 standout products (Move Plus, Bring Pro, Her Lite, Thank Lite, Voice Pro, Compare Plus), which drive 80% of revenue, to maximize profitability and sales.
+ - Develop targeted reactivation campaigns for the 80% of inactive customers (out of the 86% who have purchased) to re-engage them, leveraging their past purchase data to encourage repeat buys and increase overall sales.
+ - Introduce strategies to upsell or cross-sell to the 98% of customers spending $0-$10,000, such as bundling high-margin products from Home Appliances and Sports (50% profit margin) to boost average order value.
+ - Tailor marketing and product offerings to the mature demographic (80% aged 30+), aligning seasonal promotions with peak sales periods (e.g., March and January) to capitalize on growth rates up to 25% and mitigate declines.
+ - The healthy profit margin range of 29%-33% across all categories, combined with a 50% margin on top 10 products, indicates an opportunity to explore premium product lines to enhance overall profitability.
+ - The consistent 20% customer acquisition rate across countries suggests a stable market expansion potential, which could be leveraged by introducing region-specific promotions to further boost growth.
 
-
-
-
-### Limitations
-
-
-
-
+  
 ### References
 
-
+ - "SQL for Data Scientists: A Beginner's Guide for Building Datasets for Analysis" by Renee M. P. Teate
+ - "The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling" by Ralph Kimball and Margy Ross
+ - "SQL Performance Explained" by Markus Winand
 
 
 
