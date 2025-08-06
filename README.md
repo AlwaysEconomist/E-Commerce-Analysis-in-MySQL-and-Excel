@@ -26,7 +26,7 @@ The database consists of three main tables: dim_customers, which stores customer
 
 - Power Query in Excel : Data Cleaning .
 - MySQL : Data Analysis.
-- Excel : Visualization with simple Bar, Column, Line and Pie charts.
+- Excel : Visualization with simple stacked Bar, Line and Pie charts.
 
 ### Data Cleaning/Preparation
   In the initial data preparation phase, we performed the following task:
@@ -584,11 +584,12 @@ ORDER BY
 ### Results and Findings
  - The inventory reveals that 40% of products are overstocked, 28% maintain normal stock levels, 30% are at risk of stockout, and a mere 2% are out of stock, emphasizing the need for strategic adjustments to optimize stock distribution and prevent potential sales losses.
    
-<img width="832" height="401" alt="image" src="https://github.com/user-attachments/assets/6c7e2fb8-d235-40ee-90bf-cc81cd3cf080" />
+<img width="832" height="401" alt="image" src="https://github.com/user-attachments/assets/dd30739a-2fc8-407b-9d85-6dcdb6ea2d69" />
+
 
 
    
- - Based on the average daily sales, electronics and books are projected to be out of stock within 90 days, necessitating urgent restocking efforts for these high-demand categories. In contrast, other product categories are expected to last up to five months, allowing for more flexible inventory planning and management.
+ - Based on the average daily sales, electronics and books are projected to be out of stock within 100 days, necessitating urgent restocking efforts for these high-demand categories. In contrast, other product categories are expected to last up to five months, allowing for more flexible inventory planning and management.
    
 <img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/47bdef59-e3c0-4cae-a27b-121f9d10650e" />
 
