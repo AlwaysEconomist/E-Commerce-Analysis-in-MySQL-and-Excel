@@ -26,7 +26,7 @@ The database consists of three main tables: dim_customers, which stores customer
 
 - Power Query in Excel : Data Cleaning .
 - MySQL : Data Analysis.
-- Excel : Visualization with simple stacked Bar, Line and Pie charts.
+- Excel : Visualization with simple stacked Bar, Bar, Line Doughnut and Pie charts.
 
 ### Data Cleaning/Preparation
   In the initial data preparation phase, we performed the following task:
@@ -584,19 +584,26 @@ ORDER BY
 ### Results and Findings
  - The inventory reveals that 40% of products are overstocked, 28% maintain normal stock levels, 30% are at risk of stockout, and a mere 2% are out of stock, emphasizing the need for strategic adjustments to optimize stock distribution and prevent potential sales losses.
    
-<img width="832" height="401" alt="image" src="https://github.com/user-attachments/assets/dd30739a-2fc8-407b-9d85-6dcdb6ea2d69" />
+<img width="676" height="394" alt="image" src="https://github.com/user-attachments/assets/6a06782c-9ed4-45f0-843c-44e74cb33480" />
+
 
 
 
    
  - Based on the average daily sales, electronics and books are projected to be out of stock within 100 days, necessitating urgent restocking efforts for these high-demand categories. In contrast, other product categories are expected to last up to five months, allowing for more flexible inventory planning and management.
    
-<img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/47bdef59-e3c0-4cae-a27b-121f9d10650e" />
+<img width="621" height="434" alt="image" src="https://github.com/user-attachments/assets/ff66ca6a-0c5d-4c11-a5de-0c27821b3144" />
+
 
 
    
  - 80% of the store's revenue is driven by just 26 products, accounting for 52% of the total product lineup (50 products),
  with 6 standout performers (Move Plus, Bring Pro, Her Lite, Thank Lite, Voice Pro, and Compare Plus) each generating over $1 million.
+
+<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/3b429706-d0d7-4d60-8ba8-b8dfbf3097f9" />
+
+
+
  - The profit margin across each product category ranges from a solid 29% to 33%, reflecting a healthy and consistent profitability that strengthens the store's financial performance and supports future growth initiatives.
  - The categories of Home Appliances, Sports, and Electronics emerge as top performers, each generating revenue exceeding $5 million, underscoring their  significant contribution to the store's overall financial success and highlighting key areas for strategic focus and investment.
  - The top 10 products boasting an impressive profit margin of approximately 50% are predominantly from the home appliances and sports categories,
@@ -607,7 +614,8 @@ ORDER BY
  - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
  - The analysis shows monthly sales fluctuating between $970K and $1.4M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
 
-<img width="1273" height="641" alt="image" src="https://github.com/user-attachments/assets/45aaadea-a527-4e83-995a-faf0d6641124" />
+<img width="1104" height="626" alt="image" src="https://github.com/user-attachments/assets/7809ace9-0524-4d86-8ff0-89d6dccac8cc" />
+
 
 
 
