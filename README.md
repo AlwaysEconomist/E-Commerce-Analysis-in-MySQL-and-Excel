@@ -605,7 +605,8 @@ ORDER BY
  - 80% of the store's revenue is driven by just 26 products, accounting for 52% of the total product lineup (50 products),
  with 6 standout performers (Move Plus, Bring Pro, Her Lite, Thank Lite, Voice Pro, and Compare Plus) each generating over $1 million.
 
-<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/338a36a3-d7e0-421b-bc12-4f4c93bf32d1" />
+<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/6ee2a49f-74cb-4c81-bdff-d6e3970d0165" />
+
 
 
 
