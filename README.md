@@ -618,6 +618,10 @@ ORDER BY
  - The top 10 products boasting an impressive profit margin of approximately 50% are predominantly from the home appliances and sports categories,
  highlighting these segments as key drivers of high profitability and potential areas for targeted expansion.
  - An impressive 86% of customers in the database have made at least one purchase, reflecting an outstanding conversion rate that showcases the store's ability to effectively turn visitors into loyal buyers, but 80% of them are inactive that means they do not make any purchases for more than 90 days.
+
+<img width="589" height="394" alt="image" src="https://github.com/user-attachments/assets/2dc9308f-616b-4116-85b5-f1608b6fa3db" />
+
+   
  - The total customer acquisition rate across countries remains stable at approximately 20%, indicating a consistent and reliable growth in new customers that supports the store's ongoing expansion and market penetration efforts.
  - An overwhelming 98% of customers spend between $0 and $10,000 in the store, highlighting a broad base of low-to-mid-range spenders that underscores the need for targeted strategies to encourage higher spending among this dominant segment.
  - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
