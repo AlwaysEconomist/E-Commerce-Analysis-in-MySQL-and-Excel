@@ -29,7 +29,7 @@ The database consists of three main tables: dim_customers, which stores customer
 
 - Power Query in Excel : Data Cleaning .
 - MySQL : Data Analysis.
-- Excel : Visualization with simple stacked Bar, Bar, Line Doughnut and Pie charts.
+- Excel : Visualization with simple stacked column, Bar, Line Doughnut and Pie charts.
 
 ### Data Cleaning/Preparation
   In the initial data preparation phase, we performed the following task:
@@ -621,6 +621,10 @@ ORDER BY
  - The total customer acquisition rate across countries remains stable at approximately 20%, indicating a consistent and reliable growth in new customers that supports the store's ongoing expansion and market penetration efforts.
  - An overwhelming 98% of customers spend between $0 and $10,000 in the store, highlighting a broad base of low-to-mid-range spenders that underscores the need for targeted strategies to encourage higher spending among this dominant segment.
  - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
+
+<img width="489" height="347" alt="image" src="https://github.com/user-attachments/assets/67e2ec56-2a1a-409e-9a69-ab8be627fb92" />
+
+   
  - The analysis shows monthly sales fluctuating between $970K and $1.4M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
 
 <img width="1104" height="626" alt="image" src="https://github.com/user-attachments/assets/7809ace9-0524-4d86-8ff0-89d6dccac8cc" />
