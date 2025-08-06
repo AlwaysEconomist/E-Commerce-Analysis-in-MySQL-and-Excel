@@ -11,7 +11,10 @@
 This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address some specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
 
-<img width="769" height="451" alt="image" src="https://github.com/user-attachments/assets/fdf87edc-39d4-4f2c-914b-4898ab80f870" />
+<img width="589" height="394" alt="image" src="https://github.com/user-attachments/assets/eda82e74-b2e6-4695-b55b-92897338e7b1" />
+
+
+
 
 
 
@@ -584,7 +587,9 @@ ORDER BY
 ### Results and Findings
  - The inventory reveals that 40% of products are overstocked, 28% maintain normal stock levels, 30% are at risk of stockout, and a mere 2% are out of stock, emphasizing the need for strategic adjustments to optimize stock distribution and prevent potential sales losses.
    
-<img width="676" height="394" alt="image" src="https://github.com/user-attachments/assets/6a06782c-9ed4-45f0-843c-44e74cb33480" />
+<img width="677" height="394" alt="image" src="https://github.com/user-attachments/assets/0cf85afc-5747-47dc-9595-1323b405e867" />
+
+
 
 
 
@@ -600,7 +605,10 @@ ORDER BY
  - 80% of the store's revenue is driven by just 26 products, accounting for 52% of the total product lineup (50 products),
  with 6 standout performers (Move Plus, Bring Pro, Her Lite, Thank Lite, Voice Pro, and Compare Plus) each generating over $1 million.
 
-<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/3b429706-d0d7-4d60-8ba8-b8dfbf3097f9" />
+<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/338a36a3-d7e0-421b-bc12-4f4c93bf32d1" />
+
+
+
 
 
 
@@ -631,9 +639,9 @@ ORDER BY
   
 ### References
 
- - "SQL for Data Scientists: A Beginner's Guide for Building Datasets for Analysis" by Renee M. P. Teate
- - "The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling" by Ralph Kimball and Margy Ross
- - "SQL Performance Explained" by Markus Winand
+ - "High Performance MySQL: Proven Strategies for Operating at Scale" by Sylvia Botros and Jeremy Tinley Foreword by Jeremy Cole.
+ - "Thinking with Data: How to turn Information into Insights" by Max Shron.
+ - "Learning SQL: Generate, Manipulate, and Retrieve Data" by Alan Beaulieu.
 
 
 
