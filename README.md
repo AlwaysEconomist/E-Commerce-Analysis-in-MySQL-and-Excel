@@ -635,7 +635,8 @@ ORDER BY
    
  - The analysis shows monthly sales fluctuating between $970K and $1.4M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
 
-<img width="1212" height="626" alt="image" src="https://github.com/user-attachments/assets/03526dec-3286-4541-a8e5-605e0b572f31" />
+<img width="1346" height="626" alt="image" src="https://github.com/user-attachments/assets/6f46e1e7-26a3-42d3-840d-fd7e8356efcc" />
+
 
 
 
