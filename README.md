@@ -584,7 +584,8 @@ ORDER BY
 ### Results and Findings
  - The inventory reveals that 40% of products are overstocked, 28% maintain normal stock levels, 30% are at risk of stockout, and a mere 2% are out of stock, emphasizing the need for strategic adjustments to optimize stock distribution and prevent potential sales losses.
    
-<img width="832" height="401" alt="image" src="https://github.com/user-attachments/assets/fe612d8b-ff21-43f6-b1f9-318b6690dbdf" />
+<img width="832" height="401" alt="image" src="https://github.com/user-attachments/assets/6c7e2fb8-d235-40ee-90bf-cc81cd3cf080" />
+
 
    
  - Based on the average daily sales, electronics and books are projected to be out of stock within 90 days, necessitating urgent restocking efforts for these high-demand categories. In contrast, other product categories are expected to last up to five months, allowing for more flexible inventory planning and management.
@@ -605,7 +606,8 @@ ORDER BY
  - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
  - The analysis shows monthly sales fluctuating between $970K and $1.4M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
 
- <img width="1273" height="641" alt="image" src="https://github.com/user-attachments/assets/62ef6bf8-f51b-4a7b-a75f-700e42277655" />
+<img width="1273" height="641" alt="image" src="https://github.com/user-attachments/assets/45aaadea-a527-4e83-995a-faf0d6641124" />
+
 
 
 ### Recommendations
