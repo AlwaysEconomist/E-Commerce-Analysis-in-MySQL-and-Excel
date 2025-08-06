@@ -11,7 +11,8 @@
 This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address some specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
 
-<img width="589" height="394" alt="image" src="https://github.com/user-attachments/assets/eda82e74-b2e6-4695-b55b-92897338e7b1" />
+<img width="589" height="394" alt="image" src="https://github.com/user-attachments/assets/4c07393b-67dd-4e6c-a379-cd2ee80348dc" />
+
 
 
 
@@ -597,7 +598,9 @@ ORDER BY
    
  - Based on the average daily sales, electronics and books are projected to be out of stock within 100 days, necessitating urgent restocking efforts for these high-demand categories. In contrast, other product categories are expected to last up to five months, allowing for more flexible inventory planning and management.
    
-<img width="621" height="434" alt="image" src="https://github.com/user-attachments/assets/ff66ca6a-0c5d-4c11-a5de-0c27821b3144" />
+<img width="620" height="434" alt="image" src="https://github.com/user-attachments/assets/5a5a5f21-6f19-434a-a549-75994cfb50f1" />
+
+
 
 
 
@@ -619,7 +622,8 @@ ORDER BY
  highlighting these segments as key drivers of high profitability and potential areas for targeted expansion.
  - An impressive 86% of customers in the database have made at least one purchase, reflecting an outstanding conversion rate that showcases the store's ability to effectively turn visitors into loyal buyers, but 80% of them are inactive that means they do not make any purchases for more than 90 days.
 
-<img width="589" height="394" alt="image" src="https://github.com/user-attachments/assets/2dc9308f-616b-4116-85b5-f1608b6fa3db" />
+<img width="589" height="394" alt="image" src="https://github.com/user-attachments/assets/f10655d6-7a9b-4c40-98d2-6be30f8a2888" />
+
 
    
  - The total customer acquisition rate across countries remains stable at approximately 20%, indicating a consistent and reliable growth in new customers that supports the store's ongoing expansion and market penetration efforts.
