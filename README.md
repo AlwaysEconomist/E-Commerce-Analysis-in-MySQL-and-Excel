@@ -1,4 +1,4 @@
-# E-commerce Analysis Using MySQL
+# E-commerce Analysis Using MySQL and EXCEL
 
 ## Table of Contents
  - [Project Overview](#project-overview)
