@@ -31,7 +31,7 @@ The database consists of three main tables: dim_customers, which stores customer
 
 - Power Query in Excel : Data Cleaning .
 - MySQL : Data Analysis.
-- Excel : Visualization with simple stacked column chat, bar, line, doughnut and pie charts.
+- Excel : Visualization with simple stacked column chart, bar, line, doughnut and pie charts.
 
 ### Data Cleaning/Preparation
   In the initial data preparation phase, we performed the following task:
