@@ -11,7 +11,9 @@
 This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address some specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
 
-<img width="620" height="434" alt="image" src="https://github.com/user-attachments/assets/f33f8c53-0068-42d9-bf27-d5dccb3fa7e8" />
+<img width="1346" height="626" alt="image" src="https://github.com/user-attachments/assets/2a1f8a5a-beb4-46f3-adb7-626494db390d" />
+
+
 
 
 
@@ -631,7 +633,8 @@ ORDER BY
    
  - The analysis shows monthly sales fluctuating between $970K and $1.4M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
 
-<img width="1346" height="626" alt="image" src="https://github.com/user-attachments/assets/6f46e1e7-26a3-42d3-840d-fd7e8356efcc" />
+<img width="1346" height="626" alt="image" src="https://github.com/user-attachments/assets/c9bde010-458d-48bc-b431-c69977bace25" />
+
 
 
 
