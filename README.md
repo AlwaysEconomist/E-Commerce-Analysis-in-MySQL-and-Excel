@@ -11,7 +11,9 @@
 This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address some specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
 
-<img width="1346" height="626" alt="image" src="https://github.com/user-attachments/assets/2a1f8a5a-beb4-46f3-adb7-626494db390d" />
+<img width="1446" height="571" alt="image" src="https://github.com/user-attachments/assets/5f5f14a0-304d-4d5b-b831-071cb1e05edc" />
+
+
 
 
 
@@ -591,7 +593,9 @@ ORDER BY
 ### Results and Findings
  - The inventory reveals that 40% of products are overstocked, 28% maintain normal stock levels, 30% are at risk of stockout, and a mere 2% are out of stock, emphasizing the need for strategic adjustments to optimize stock distribution and prevent potential sales losses.
    
-<img width="677" height="394" alt="image" src="https://github.com/user-attachments/assets/0cf85afc-5747-47dc-9595-1323b405e867" />
+<img width="676" height="394" alt="image" src="https://github.com/user-attachments/assets/57b81efe-1fd2-4d9e-906d-93706e07a0f5" />
+
+
 
 
 
@@ -601,7 +605,9 @@ ORDER BY
    
  - Based on the average daily sales, electronics and books are projected to be out of stock within 100 days, necessitating urgent restocking efforts for these high-demand categories. In contrast, other product categories are expected to last up to five months, allowing for more flexible inventory planning and management.
    
-<img width="620" height="434" alt="image" src="https://github.com/user-attachments/assets/5a5a5f21-6f19-434a-a549-75994cfb50f1" />
+<img width="620" height="435" alt="image" src="https://github.com/user-attachments/assets/c59ba40e-a511-4667-9ae0-aa2fa9b374bc" />
+
+
 
 
 
@@ -624,16 +630,29 @@ ORDER BY
  - The top 10 products boasting an impressive profit margin of approximately 50% are predominantly from the home appliances and sports categories,
  highlighting these segments as key drivers of high profitability and potential areas for targeted expansion.
  - An impressive 86% of customers in the database have made at least one purchase, reflecting an outstanding conversion rate that showcases the store's ability to effectively turn visitors into loyal buyers, but 80% of them are inactive that means they do not make any purchases for more than 90 days.
+
+   <img width="581" height="392" alt="image" src="https://github.com/user-attachments/assets/924e7cf7-d4e5-4c9c-8b11-24be21362f39" />
+
+   
+
  - The total customer acquisition rate across countries remains stable at approximately 20%, indicating a consistent and reliable growth in new customers that supports the store's ongoing expansion and market penetration efforts.
  - An overwhelming 98% of customers spend between $0 and $10,000 in the store, highlighting a broad base of low-to-mid-range spenders that underscores the need for targeted strategies to encourage higher spending among this dominant segment.
  - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
 
-<img width="489" height="347" alt="image" src="https://github.com/user-attachments/assets/67e2ec56-2a1a-409e-9a69-ab8be627fb92" />
+<img width="489" height="387" alt="image" src="https://github.com/user-attachments/assets/32ff7dd2-8c9e-448d-95e9-2bb5947678b7" />
+
+
 
    
- - The analysis shows monthly sales fluctuating between $970K and $1.4M, with notable peaks around March 2024 and January 2025. The growth rate percentage varies significantly, reaching up to 25% during peak sales periods and dropping to -15% during declines.
+ - The analysis reveals monthly sales fluctuating between $970K and $1.4M, with notable peaks in April 2024 ($1.31M, 26.5% growth vs. previous month) and January 2025. The lowest sales occurred in February 2024 ($973K, -17.7% growth) and February 2025 ($977K, -15% growth), indicating a consistent decline in sales during February, possibly due to a recurring seasonal trend or specific influencing factor. The trend shows seasonal patterns, with peaks in spring and early winter, and declines mid-year and late winter.
 
-<img width="1346" height="626" alt="image" src="https://github.com/user-attachments/assets/c9bde010-458d-48bc-b431-c69977bace25" />
+
+
+
+<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/7e6d7947-b238-407e-adc6-280331397bec" />
+
+
+
 
 
 
