@@ -640,7 +640,8 @@ ORDER BY
  - An overwhelming 98% of customers spend between $0 and $10,000 in the store, highlighting a broad base of low-to-mid-range spenders that underscores the need for targeted strategies to encourage higher spending among this dominant segment.
  - The primary customer base consists of adults aged 30 and older, indicating a focus on a mature demographic.
 
-<img width="489" height="387" alt="image" src="https://github.com/user-attachments/assets/32ff7dd2-8c9e-448d-95e9-2bb5947678b7" />
+<img width="548" height="387" alt="image" src="https://github.com/user-attachments/assets/92d3f402-4ab7-472d-ab7c-fe280d1cd6dc" />
+
 
 
 
