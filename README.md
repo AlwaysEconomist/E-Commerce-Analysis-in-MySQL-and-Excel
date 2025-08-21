@@ -11,7 +11,8 @@
 This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address some specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
 
-<img width="1446" height="571" alt="image" src="https://github.com/user-attachments/assets/5f5f14a0-304d-4d5b-b831-071cb1e05edc" />
+<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/7575a9a7-82ab-4bbb-b68b-409508941f60" />
+
 
 
 
@@ -648,8 +649,8 @@ ORDER BY
 
 
 
+<img width="1446" height="571" alt="image" src="https://github.com/user-attachments/assets/80d0a7bc-9c12-4378-a5f0-318ec8528ed8" />
 
-<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/7e6d7947-b238-407e-adc6-280331397bec" />
 
 
 
