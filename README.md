@@ -11,7 +11,7 @@
 This project revolves around optimizing and analyzing a toy store's operations answering key business questions, ranging from inventory management to customer behavior insights. The task involves crafting SQL queries to address some specific questions, covering areas like stock levels (e.g., identifying zero stock or overstocked products), product performance (e.g., top-selling categories), loyal customer analysis (e.g., inactive customers), sales and revenue trends (e.g., month-over-month growth), customer acquisition and retention (e.g., new customers per month), and detailed customer segmentation (e.g., by gender, age, or spending). These queries help solve practical business problems, such as preventing stockouts, targeting high-value customers, and tailoring marketing strategies.
 
 
-<img width="658" height="592" alt="image" src="https://github.com/user-attachments/assets/7575a9a7-82ab-4bbb-b68b-409508941f60" />
+<img width="658" height="552" alt="image" src="https://github.com/user-attachments/assets/7575a9a7-82ab-4bbb-b68b-409508941f60" />
 
 
 
@@ -48,7 +48,6 @@ The database consists of three main tables: dim_customers, which stores customer
 
 ### Exploratory Data Analysis (EDA)
  - Which products are out of stock or overstocked?
- - What is the sales trend overall?
  - Which product categories are top seller?
  - Which customers are loyal?
  - What are the peak sales period?
