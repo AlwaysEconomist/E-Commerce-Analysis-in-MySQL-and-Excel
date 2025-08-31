@@ -55,9 +55,9 @@ The database consists of three main tables: dim_customers, which stores customer
 
 ### Data Analysis
 
-```sql
+  - DATABASE STRUCTURE
 
--- Database Structure
+```sql
 
 CREATE DATABASE bens;
 
@@ -91,9 +91,11 @@ CREATE TABLE fact_sales (
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
     FOREIGN KEY (product_id) REFERENCES product(product_id)
 );
+```
 
-      -- QUERY OPTIMIZATION THROUGH INDEXES
-                         
+ - QUERY OPTIMIZATION THROUGH INDEXES
+   
+ ```sql                        
 -- Customer_id is already indexed as PRIMARY KEY
 CREATE INDEX idx_customers_country ON bens.dim_customers (country);
 CREATE INDEX idx_customers_join_date ON bens.dim_customers (join_date);
@@ -110,8 +112,10 @@ CREATE INDEX idx_fact_sales_customer_id ON bens.fact_sales (customer_id);
 CREATE INDEX idx_fact_sales_product_id ON bens.fact_sales (product_id);
 CREATE INDEX idx_fact_sales_order_date ON bens.fact_sales (order_date);
 CREATE INDEX idx_fact_sales_customer_date ON bens.fact_sales (customer_id, order_date);
+```
+  - ANALYSIS
 
-    
+```sql
 -- A. STOCK INVENTORY MANAGEMENT: Focuses on managing and analyzing inventory levels to optimize stock and prevent shortages or overstocking.
 
 -- 1. Which products have zero stock / are at risk of stockout /normal stock / are overstocked ?
@@ -132,16 +136,6 @@ SELECT
 FROM
     bens.dim_products
 ; 
-    
--- 2. What is the stock value of each category?
--- Provides insight into the financial value of inventory per category for better budgeting and investment decisions.
-
-SELECT 
-    category, ROUND(SUM(price * stock), 2) AS StockValue
-FROM
-    bens.dim_products 
-GROUP BY category
-ORDER BY StockValue DESC;
 
 -- 3. Predict stock depletion based on average daily sales?
 -- Allows planning for restocking to prevent shortages and ensure continuous product availability.
@@ -192,19 +186,6 @@ GROUP BY p.product_id , p.product_name
 ORDER BY Total_Quantity DESC
 LIMIT 5;
 
--- 5. What is the average order value by category?
--- Informs pricing and promotion strategies to boost profitability per category.
- 
-SELECT 
-    p.category AS Product_Category,
-    ROUND(AVG(p.price * fs.quantity), 2) AS Avg_Order_Value
-FROM
-    bens.fact_sales fs
-        LEFT JOIN
-    bens.dim_products p ON fs.product_id = p.product_id
-GROUP BY Product_Category
-ORDER BY Avg_Order_Value DESC;
-
 -- 6. Which products contribute to 80% of total sales (Pareto analysis)?
 -- Focuses efforts on the most impactful products to optimize sales and efficiency.
 
@@ -234,58 +215,6 @@ WHERE
 ORDER BY 
     Sales_Amount DESC;
 
--- 7. What is the total sales, total cost, quantity sold, profit and profit margin by product category?
---  Helps assess category profitability to guide pricing and cost management decisions.
-
-WITH Product_Sales AS (
-    SELECT 
-        p.category,
-        SUM(p.price * fs.quantity) AS Sales_Amount,
-        SUM(fs.quantity) AS Quantity_Sold,
-        SUM(fs.quantity * p.cost) AS Cost_Amount
-    FROM 
-        bens.fact_sales fs
-        LEFT JOIN bens.dim_products p ON fs.product_id = p.product_id
-    GROUP BY 
-       p.category
-)
-SELECT 
-    category,
-    Sales_Amount,
-    Quantity_Sold,
-    Cost_Amount,
-    ROUND((Sales_Amount - Cost_Amount),2) AS Profit,
-    ROUND((Sales_Amount - Cost_Amount) / Sales_Amount, 2) AS Profit_Margin
-FROM 
-    Product_Sales;
-    
--- 8. Which products have the highest profit margin?
---  Prioritizes high-margin products to maximize profit and resource allocation.
-
-WITH Product_Sales AS (
-    SELECT 
-        p.product_id,
-        p.product_name,
-        SUM(p.price * fs.quantity) AS Sales_Amount,
-        SUM(fs.quantity * p.cost) AS Cost_Amount
-    FROM 
-        bens.fact_sales fs
-        LEFT JOIN bens.dim_products p ON fs.product_id = p.product_id
-    GROUP BY 
-       p.product_id,
-       p.product_name
-)
-SELECT 
-    product_id,
-	product_name,
-    Sales_Amount,
-    Cost_Amount,
-    ROUND((Sales_Amount - Cost_Amount),2) AS Profit,
-    ROUND((Sales_Amount - Cost_Amount) / Sales_Amount, 2) AS Profit_Margin
-FROM 
-    Product_Sales
-ORDER BY 6 DESC;
-
 
       -- C. LOYAL CUSTOMER ANALYSIS : Focuses on identifying and analyzing loyal or high-value customers.
 
@@ -301,37 +230,7 @@ WHERE
             customer_id
         FROM
             bens.fact_sales);
-            
 
--- 10. Which customers are in the top 10% by total spending?
--- Focuses on top spenders to enhance customer retention and increase lifetime value.
-
-WITH CustomerSpending AS (
-    SELECT 
-        c.customer_id,
-        CONCAT(c.last_name, ' ', c.first_name) AS FullName,
-        ROUND(SUM(fs.quantity * p.price), 2) AS Total_Spent,
-        NTILE(10) OVER (ORDER BY ROUND(SUM(fs.quantity * p.price), 2) DESC) AS Spending_Decile
-    FROM 
-        bens.dim_customers c
-        JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
-        JOIN bens.dim_products p ON fs.product_id = p.product_id
-    GROUP BY 
-        c.customer_id,
-        c.first_name,
-        c.last_name
-)
-SELECT 
-    customer_id,
-    FullName,
-    Total_Spent
-FROM 
-    CustomerSpending
-WHERE 
-    Spending_Decile = 1
-ORDER BY 
-    Total_Spent DESC;
-    
 -- 11. What is the average time between purchases for each customer? (purchases frequency)
 -- Measures customer loyalty and informs re-engagement timing to maintain sales momentum.
 
@@ -360,14 +259,6 @@ HAVING
     COUNT(pi.Days_Between) > 0
 ORDER BY 
     Avg_Days_Between_Purchases ASC;
-    
---12.  What is the average sales amount per customer?   
-
-SELECT 
-    c.customer_id, c.first_name, c.last_name, ROUND(AVG(fs.sales_amount), 2) AS avg_sales
-FROM bens.dim_customers c
-     JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
-GROUP BY c.customer_id, c.first_name, c.last_name;
 
 
    -- D. REVENUE ANALYSIS : Examines overall sales performance, trends, and growth.
@@ -449,145 +340,6 @@ ORDER BY
     c.customer_id,
     Total_Spent DESC;
 
--- 17. What is the distribution of marital status among top-spending customers?
---  Informs personalized offers for top spenders based on marital status insights.
-
-WITH TopSpenders AS (
-    SELECT 
-        c.customer_id,
-        c.marital_status,
-        SUM(fs.quantity * p.price) AS Total_Spent,
-        NTILE(4) OVER (ORDER BY SUM(fs.quantity * p.price) DESC) AS Spending_Quartile
-    FROM 
-        bens.dim_customers c
-        JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
-        JOIN bens.dim_products p ON fs.product_id = p.product_id
-    GROUP BY 
-        c.customer_id,
-        c.marital_status
-)
-SELECT 
-    marital_status,
-    COUNT(*) AS Top_Spender_Count,
-    ROUND(AVG(Total_Spent), 2) AS Avg_Spent
-FROM 
-    TopSpenders
-WHERE 
-    Spending_Quartile = 1
-GROUP BY 
-    marital_status
-ORDER BY 
-    Top_Spender_Count DESC;
-
--- 18. Which gender and marital status combinations have the highest order frequency?
---  Identifies high-frequency buyer demographics for targeted retention strategies.
-
-SELECT 
-    c.gender,
-    c.marital_status,
-    p.category,
-    COUNT(*) AS Order_Count,
-    COUNT(DISTINCT c.customer_id) AS Customer_Count
-FROM 
-    bens.dim_customers c
-    JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
-    JOIN bens.dim_products p ON fs.product_id = p.product_id
-GROUP BY 
-    c.gender,
-    c.marital_status,
-    p.category
-ORDER BY 
-    Order_Count DESC
-LIMIT 
-    5;
-    
--- 19 . How do age groups differ in their purchasing behavior by category?
--- Helps customize inventory and promotions to match age-based buying preferences.
-
-WITH AgeSegment AS (
-    SELECT 
-        c.customer_id,
-        CASE 
-            WHEN TIMESTAMPDIFF(YEAR, c.birth_date, CURDATE()) < 30 THEN 'Under 30'
-            WHEN TIMESTAMPDIFF(YEAR, c.birth_date, CURDATE()) BETWEEN 30 AND 50 THEN '30-50'
-            ELSE 'Over 50'
-        END AS Age_Group
-    FROM 
-        bens.dim_customers c
-)
-SELECT 
-    asg.Age_Group,
-    p.category,
-    COUNT(*) AS Purchase_Count,
-    ROUND(AVG(fs.quantity * p.price), 2) AS Avg_Purchase
-FROM 
-    AgeSegment asg
-    JOIN bens.fact_sales fs ON ASG.customer_id = fs.customer_id
-    JOIN bens.dim_products p ON fs.product_id = p.product_id
-GROUP BY 
-    asg.Age_Group,
-    p.category
-ORDER BY 
-    asg.Age_Group,
-    Purchase_Count DESC;
-
--- 20. What is the churn rate of customers who joined this year?  
--- Measures new customer retention to improve onboarding and reduce turnover.
-
-WITH ActiveCustomers AS (
-    SELECT 
-        c.customer_id,
-        MIN(fs.order_date) AS First_Purchase
-    FROM 
-        bens.dim_customers c
-        JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
-    WHERE 
-        c.join_date >= '2025-01-01' AND c.join_date <= CURDATE()
-    GROUP BY 
-        c.customer_id
-)
-SELECT 
-    COUNT(*) AS Total_New_Customers,
-    COUNT(CASE 
-        WHEN NOT EXISTS (
-            SELECT 1 
-            FROM bens.fact_sales fs2 
-            WHERE fs2.customer_id = ac.customer_id 
-            AND fs2.order_date > DATE_ADD(ac.First_Purchase, INTERVAL 1 MONTH)
-        ) THEN 1 
-        ELSE NULL 
-    END) AS Churned_Customers,
-    ROUND((COUNT(CASE WHEN NOT EXISTS (
-        SELECT 1 
-        FROM bens.fact_sales fs2 
-        WHERE fs2.customer_id = ac.customer_id 
-        AND fs2.order_date > DATE_ADD(ac.First_Purchase, INTERVAL 1 MONTH)
-    ) THEN 1 ELSE NULL END) * 100.0 / COUNT(*)), 2) AS Churn_Rate_Percent
-FROM 
-    ActiveCustomers ac;
-
-
--- 21. Which customers are segmented by recency of purchase (last 30, 60, 90 days)?
--- Helps you send reminders to customers who haven’t purchased in a while!
-
-SELECT 
-    c.customer_id,
-    CONCAT(c.last_name, ' ', c.first_name) AS FullName,
-    CASE 
-        WHEN MAX(fs.order_date) >= DATE_SUB(CURDATE(), INTERVAL 30 DAY) THEN 'Active (0-30 days)'
-        WHEN MAX(fs.order_date) >= DATE_SUB(CURDATE(), INTERVAL 60 DAY) THEN 'Recent (31-60 days)'
-        WHEN MAX(fs.order_date) >= DATE_SUB(CURDATE(), INTERVAL 90 DAY) THEN 'Lapsed (61-90 days)'
-        ELSE 'Inactive (>90 days)'
-    END AS Recency_Segment
-FROM 
-    bens.dim_customers c
-    LEFT JOIN bens.fact_sales fs ON c.customer_id = fs.customer_id
-GROUP BY 
-    c.customer_id,
-    c.first_name,
-    c.last_name
-ORDER BY 
-    FIELD(Recency_Segment, 'Active (0-30 days)', 'Recent (31-60 days)', 'Lapsed (61-90 days)', 'Inactive (>90 days)');
 ```
 
 
